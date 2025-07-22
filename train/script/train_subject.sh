@@ -1,11 +1,10 @@
 # *[Specify the config file path and the GPU devices to use]
-# export CUDA_VISIBLE_DEVICES=0,1
+export CUDA_VISIBLE_DEVICES=0
 
 # *[Specify the config file path]
 export OMINI_CONFIG=./train/config/subject.yaml
 
-# *[Specify the WANDB API key]
-# export WANDB_API_KEY='YOUR_WANDB_API_KEY'
+export WANDB_API_KEY='a5ebf533c17c677bcee36f66c91907b5fb102f7c'
 
 echo $OMINI_CONFIG
 export TOKENIZERS_PARALLELISM=true

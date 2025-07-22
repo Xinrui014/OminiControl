@@ -12,7 +12,7 @@ from typing import List
 
 import prodigyopt
 
-from ..pipeline.flux_omini import transformer_forward, encode_images
+from omini.pipeline.flux_omini import transformer_forward, encode_images
 
 
 def get_rank():

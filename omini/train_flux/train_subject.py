@@ -9,8 +9,8 @@ from PIL import Image
 
 from datasets import load_dataset
 
-from .trainer import OminiModel, get_config, train
-from ..pipeline.flux_omini import Condition, generate
+from trainer import OminiModel, get_config, train
+from omini.pipeline.flux_omini import Condition, generate
 
 
 class Subject200KDataset(Dataset):
