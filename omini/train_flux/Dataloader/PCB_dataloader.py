@@ -370,7 +370,8 @@ class TIPCBDataset(torch.utils.data.Dataset):
 
         valid_k = int(masks.sum().item())
         boxes_out = subject_boxes[:valid_k].clone()            # (K,4), normalized [0,1]
-        box_prompts_out = kept_types[:valid_k]                 # List[str], len K
+        box_prompts_out_draw = kept_types[:valid_k]                 # List[str], len K
+        box_prompts_out = [str(x) for x in kept_types[:valid_k]]
 
         # Draw boxes on the image (for debugging purposes)
         if self.save_debug:
@@ -380,7 +381,7 @@ class TIPCBDataset(torch.utils.data.Dataset):
             img = ((img + 1.0) * 127.5).clip(0, 255).astype(np.uint8)
             img = np.ascontiguousarray(img.transpose(1, 2, 0))  # (H,W,C) RGB
 
-            for box, label in zip(boxes_out, box_prompts_out):
+            for box, label in zip(boxes_out, box_prompts_out_draw):
                 if box.sum() == 0:
                     continue
                 x_min = int(box[0] * H); y_min = int(box[1] * H)
