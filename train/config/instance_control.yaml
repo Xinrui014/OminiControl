@@ -1,32 +1,35 @@
 flux_path: "black-forest-labs/FLUX.1-dev"
+#flux_path: "black-forest-labs/FLUX.1-schnell"
 dtype: "bfloat16"
+
+run_name: "before_debug"
 
 model:
   independent_condition: false
 
 train:
-  accumulate_grad_batches: 1
+  batch_size: 1
+  accumulate_grad_batches: 8
   dataloader_workers: 5
   save_interval: 1000
   sample_interval: 100
   max_steps: -1
   gradient_checkpointing: true # (Turn off for faster training)
   save_path: "runs"
+  max_sequence_length: 512
 
   # Specify the type of condition to use. 
   condition_type: "subject"
   dataset:
-    type: "subject"
-    condition_size:
-      - 512
-      - 512
-    target_size: 
-      - 512
-      - 512
-    image_size: 512
-    padding: 8
-    drop_text_prob: 0.1
-    drop_image_prob: 0.1
+
+    img_root: "/home/xinrui/projects/data/ti_pcb/images_top"
+    csv_root: "/home/xinrui/projects/data/ti_pcb/ann_csv_top"
+
+    image_size: 1024
+    use_patches: true
+    patch_size: 256
+    save_debug: false
+    max_boxes_per_data: 50
 
   wandb:
     project: "OminiControl"
