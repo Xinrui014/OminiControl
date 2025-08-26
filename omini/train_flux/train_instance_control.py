@@ -7,7 +7,7 @@ import numpy as np
 
 from PIL import Image
 
-from datasets import load_dataset
+# from datasets import load_dataset
 
 from trainer_instance_control import OminiModel, get_config, train
 from omini.pipeline.flux_omini import Condition, generate

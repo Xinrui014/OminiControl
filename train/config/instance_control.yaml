@@ -5,7 +5,7 @@ dtype: "bfloat16"
 run_name: "before_debug"
 
 model:
-  independent_condition: false
+  independent_condition: true
 
 train:
   batch_size: 1
