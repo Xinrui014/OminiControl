@@ -55,14 +55,14 @@ def build_conditions_from_boxes(pipe, boxes, target_size):
 
     # We need encoder ids for the latent grid space
     w, h = target_size
-    blank_latents = torch.zeros(1, 3, h, w, device="cpu")
+    blank_latents = torch.zeros(1, 3, h, w)
     _, ids = encode_images(pipe, blank_latents)
 
     blank_img = Image.new("RGB", (w, h))
     conditions = []
     for box in boxes:
         # box is normalized [0,1]: (x0, y0, x1, y1)
-        b = torch.tensor(box, dtype=torch.float32)
+        b = torch.tensor(box)
         mask = bbox_to_latent_mask(b, ids)
         conditions.append(Condition(blank_img, "default", latent_mask=mask))
     return conditions
@@ -91,7 +91,7 @@ def infer_folder(
     os.makedirs(save_dir, exist_ok=True)
 
     # Seed
-    L.seed_everything(int(os.environ.get("SEED", seed)), workers=True)
+    # L.seed_everything(int(os.environ.get("SEED", seed)), workers=True)
 
     # Load config
     with open(config_path, "r") as f:
@@ -121,6 +121,9 @@ def infer_folder(
         )
 
         boxes, box_prompts, prompt, real_patch = sample_to_io(sample)
+        boxes       = [[0.10, 0.12, 0.30, 0.35], [0.55, 0.60, 0.80, 0.90]]
+        box_prompts = ["red Resistor", "blue Capacitor"]
+        prompt      = "PCB board with components: " + ", ".join(box_prompts)
         conditions = build_conditions_from_boxes(pipe, boxes, target_size=target_size)
 
         # Generate
@@ -155,7 +158,7 @@ def infer_folder(
 def parse_args():
     p = argparse.ArgumentParser(description="Batch inference for a folder of images.")
     # p.add_argument("--input_dir", required=True, help="Folder of input images.")
-    p.add_argument("--save_dir", default="/home/xinrui/projects/OminiControl/omini/train_flux/runs/before_debug/test2_6k", help="Where to save results.")
+    p.add_argument("--save_dir", default="/home/xinrui/projects/OminiControl/omini/train_flux/runs/before_debug/test_natural", help="Where to save results.")
     p.add_argument(
         "--config_path",
         default="/home/xinrui/projects/OminiControl/train/config/instance_control.yaml",
@@ -163,14 +166,14 @@ def parse_args():
     )
     p.add_argument(
         "--lora_ckpt",
-        default="/home/xinrui/projects/OminiControl/omini/train_flux/runs/before_debug/ckpt/6000",
+        default="/home/xinrui/projects/OminiControl/omini/train_flux/runs/before_debug/ckpt/12000",
         help="Path to LoRA weights directory (adapter).",
     )
-    p.add_argument("--device", default="cuda:0", help="CUDA device string, e.g. cuda:0")
+    p.add_argument("--device", default="cuda:3", help="CUDA device string, e.g. cuda:0")
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--width", type=int, default=256)
     p.add_argument("--height", type=int, default=256)
-    p.add_argument("--limit", type=int, default=10, help="Max number of items.")
+    p.add_argument("--limit", type=int, default=1, help="Max number of items.")
     return p.parse_args()
 
 
