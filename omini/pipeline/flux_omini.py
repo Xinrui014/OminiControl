@@ -21,6 +21,7 @@ from contextlib import contextmanager
 import cv2
 
 from PIL import Image, ImageFilter
+from omini.utils.layout import bbox_to_latent_mask, build_group_mask
 
 
 def seed_everything(seed: int = 42):
@@ -43,8 +44,8 @@ def encode_images(pipeline: FluxPipeline, images: torch.Tensor):
     images = images.to(pipeline.device).to(pipeline.dtype)
     images = pipeline.vae.encode(images).latent_dist.sample()
     images = (
-        images - pipeline.vae.config.shift_factor
-    ) * pipeline.vae.config.scaling_factor
+                     images - pipeline.vae.config.shift_factor
+             ) * pipeline.vae.config.scaling_factor
     images_tokens = pipeline._pack_latents(images, *images.shape)
     images_ids = pipeline._prepare_latent_image_ids(
         images.shape[0],
@@ -60,7 +61,7 @@ def encode_images(pipeline: FluxPipeline, images: torch.Tensor):
             images.shape[3] // 2,
             pipeline.device,
             pipeline.dtype,
-        )
+            )
     return images_tokens, images_ids
 
 
@@ -68,9 +69,9 @@ depth_pipe = None
 
 
 def convert_to_condition(
-    condition_type: str,
-    raw_img: Union[Image.Image, torch.Tensor],
-    blur_radius: Optional[int] = 5,
+        condition_type: str,
+        raw_img: Union[Image.Image, torch.Tensor],
+        blur_radius: Optional[int] = 5,
 ) -> Union[Image.Image, torch.Tensor]:
     if condition_type == "depth":
         global depth_pipe
@@ -103,13 +104,13 @@ def convert_to_condition(
 
 class Condition(object):
     def __init__(
-        self,
-        condition: Union[Image.Image, torch.Tensor],
-        adapter_setting: Union[str, dict],
-        position_delta=None,
-        position_scale=1.0,
-        latent_mask=None,
-        is_complement=False,
+            self,
+            condition: Union[Image.Image, torch.Tensor],
+            adapter_setting: Union[str, dict],
+            position_delta=None,
+            position_scale=1.0,
+            latent_mask=None,
+            is_complement=False,
     ) -> None:
         self.condition = condition
         self.adapter = adapter_setting
@@ -121,7 +122,7 @@ class Condition(object):
         self.is_complement = is_complement
 
     def encode(
-        self, pipe: FluxPipeline, empty: bool = False
+            self, pipe: FluxPipeline, empty: bool = False
     ) -> Tuple[torch.Tensor, torch.Tensor, int]:
         condition_empty = Image.new("RGB", self.condition.size, (0, 0, 0))
         tokens, ids = encode_images(pipe, condition_empty if empty else self.condition)
@@ -171,17 +172,17 @@ def specify_lora(lora_modules: List[BaseTunerLayer], specified_lora):
 
 
 def attn_forward(
-    attn: Attention,
-    hidden_states: List[torch.FloatTensor],
-    adapters: List[str],
-    hidden_states2: Optional[List[torch.FloatTensor]] = [],
-    position_embs: Optional[List[torch.Tensor]] = None,
-    group_mask: Optional[torch.Tensor] = None,
-    cache_mode: Optional[str] = None,
-    # to determine whether to cache the keys and values for this branch
-    to_cache: Optional[List[torch.Tensor]] = None,
-    cache_storage: Optional[List[torch.Tensor]] = None,
-    **kwargs: dict,
+        attn: Attention,
+        hidden_states: List[torch.FloatTensor],
+        adapters: List[str],
+        hidden_states2: Optional[List[torch.FloatTensor]] = [],
+        position_embs: Optional[List[torch.Tensor]] = None,
+        group_mask: Optional[torch.Tensor] = None,
+        cache_mode: Optional[str] = None,
+        # to determine whether to cache the keys and values for this branch
+        to_cache: Optional[List[torch.Tensor]] = None,
+        cache_storage: Optional[List[torch.Tensor]] = None,
+        **kwargs: dict,
 ) -> torch.FloatTensor:
     bs, _, _ = hidden_states[0].shape
     h2_n = len(hidden_states2)
@@ -269,14 +270,14 @@ def attn_forward(
 
 
 def block_forward(
-    self,
-    image_hidden_states: List[torch.FloatTensor],
-    text_hidden_states: List[torch.FloatTensor],
-    tembs: List[torch.FloatTensor],
-    adapters: List[str],
-    position_embs=None,
-    attn_forward=attn_forward,
-    **kwargs: dict,
+        self,
+        image_hidden_states: List[torch.FloatTensor],
+        text_hidden_states: List[torch.FloatTensor],
+        tembs: List[torch.FloatTensor],
+        adapters: List[str],
+        position_embs=None,
+        attn_forward=attn_forward,
+        **kwargs: dict,
 ):
     txt_n = len(text_hidden_states)
 
@@ -304,7 +305,7 @@ def block_forward(
         _, gate_msa, shift_mlp, scale_mlp, gate_mlp = txt_variables[i]
         text_h = text_hidden_states[i] + txt_attn_output[i] * gate_msa.unsqueeze(1)
         norm_h = (
-            self.norm2_context(text_h) * (1 + scale_mlp[:, None]) + shift_mlp[:, None]
+                self.norm2_context(text_h) * (1 + scale_mlp[:, None]) + shift_mlp[:, None]
         )
         text_h = self.ff_context(norm_h) * gate_mlp.unsqueeze(1) + text_h
         text_out.append(clip_hidden_states(text_h))
@@ -313,7 +314,7 @@ def block_forward(
     for i in range(len(image_hidden_states)):
         _, gate_msa, shift_mlp, scale_mlp, gate_mlp = img_variables[i]
         image_h = (
-            image_hidden_states[i] + img_attn_output[i] * gate_msa.unsqueeze(1)
+                image_hidden_states[i] + img_attn_output[i] * gate_msa.unsqueeze(1)
         ).to(image_hidden_states[i].dtype)
         norm_h = self.norm2(image_h) * (1 + scale_mlp[:, None]) + shift_mlp[:, None]
         with specify_lora((self.ff.net[2],), adapters[i + txt_n]):
@@ -323,13 +324,13 @@ def block_forward(
 
 
 def single_block_forward(
-    self,
-    hidden_states: List[torch.FloatTensor],
-    tembs: List[torch.FloatTensor],
-    adapters: List[str],
-    position_embs=None,
-    attn_forward=attn_forward,
-    **kwargs: dict,
+        self,
+        hidden_states: List[torch.FloatTensor],
+        tembs: List[torch.FloatTensor],
+        adapters: List[str],
+        position_embs=None,
+        attn_forward=attn_forward,
+        **kwargs: dict,
 ):
     mlp_hidden_states, gates = [[None for _ in hidden_states] for _ in range(2)]
 
@@ -359,20 +360,20 @@ def single_block_forward(
 
 
 def transformer_forward(
-    transformer: FluxTransformer2DModel,
-    image_features: List[torch.Tensor],
-    text_features: List[torch.Tensor] = None,
-    img_ids: List[torch.Tensor] = None,
-    txt_ids: List[torch.Tensor] = None,
-    pooled_projections: List[torch.Tensor] = None,
-    timesteps: List[torch.LongTensor] = None,
-    guidances: List[torch.Tensor] = None,
-    adapters: List[str] = None,
-    # Assign the function to be used for the forward pass
-    single_block_forward=single_block_forward,
-    block_forward=block_forward,
-    attn_forward=attn_forward,
-    **kwargs: dict,
+        transformer: FluxTransformer2DModel,
+        image_features: List[torch.Tensor],
+        text_features: List[torch.Tensor] = None,
+        img_ids: List[torch.Tensor] = None,
+        txt_ids: List[torch.Tensor] = None,
+        pooled_projections: List[torch.Tensor] = None,
+        timesteps: List[torch.LongTensor] = None,
+        guidances: List[torch.Tensor] = None,
+        adapters: List[str] = None,
+        # Assign the function to be used for the forward pass
+        single_block_forward=single_block_forward,
+        block_forward=block_forward,
+        attn_forward=attn_forward,
+        **kwargs: dict,
 ):
     self = transformer
     txt_n = len(text_features) if text_features is not None else 0
@@ -458,33 +459,33 @@ def transformer_forward(
 
 @torch.no_grad()
 def generate(
-    pipeline: FluxPipeline,
-    prompt: Union[str, List[str]] = None,
-    prompt_2: Optional[Union[str, List[str]]] = None,
-    height: Optional[int] = 512,
-    width: Optional[int] = 512,
-    num_inference_steps: int = 28,
-    timesteps: List[int] = None,
-    guidance_scale: float = 3.5,
-    num_images_per_prompt: Optional[int] = 1,
-    generator: Optional[Union[torch.Generator, List[torch.Generator]]] = None,
-    latents: Optional[torch.FloatTensor] = None,
-    prompt_embeds: Optional[torch.FloatTensor] = None,
-    pooled_prompt_embeds: Optional[torch.FloatTensor] = None,
-    output_type: Optional[str] = "pil",
-    return_dict: bool = True,
-    joint_attention_kwargs: Optional[Dict[str, Any]] = None,
-    callback_on_step_end: Optional[Callable[[int, int, Dict], None]] = None,
-    callback_on_step_end_tensor_inputs: List[str] = ["latents"],
-    max_sequence_length: int = 512,
-    # Condition Parameters (Optional)
-    main_adapter: Optional[List[str]] = None,
-    conditions: List[Condition] = [],
-    image_guidance_scale: float = 1.0,
-    transformer_kwargs: Optional[Dict[str, Any]] = {},
-    kv_cache=False,
-    latent_mask=None,
-    **params: dict,
+        pipeline: FluxPipeline,
+        prompt: Union[str, List[str]] = None,
+        prompt_2: Optional[Union[str, List[str]]] = None,
+        height: Optional[int] = 512,
+        width: Optional[int] = 512,
+        num_inference_steps: int = 28,
+        timesteps: List[int] = None,
+        guidance_scale: float = 3.5,
+        num_images_per_prompt: Optional[int] = 1,
+        generator: Optional[Union[torch.Generator, List[torch.Generator]]] = None,
+        latents: Optional[torch.FloatTensor] = None,
+        prompt_embeds: Optional[torch.FloatTensor] = None,
+        pooled_prompt_embeds: Optional[torch.FloatTensor] = None,
+        output_type: Optional[str] = "pil",
+        return_dict: bool = True,
+        joint_attention_kwargs: Optional[Dict[str, Any]] = None,
+        callback_on_step_end: Optional[Callable[[int, int, Dict], None]] = None,
+        callback_on_step_end_tensor_inputs: List[str] = ["latents"],
+        max_sequence_length: int = 512,
+        # Condition Parameters (Optional)
+        main_adapter: Optional[List[str]] = None,
+        conditions: List[Condition] = [],
+        image_guidance_scale: float = 1.0,
+        transformer_kwargs: Optional[Dict[str, Any]] = {},
+        kv_cache=False,
+        latent_mask=None,
+        **params: dict,
 ):
     self = pipeline
 
@@ -542,7 +543,7 @@ def generate(
         device,
         generator,
         latents,
-    )
+        )
 
     if latent_mask is not None:
         latent_mask = latent_mask.T.reshape(-1)
@@ -637,7 +638,7 @@ def generate(
                 txt_ids=[text_ids],
                 timesteps=[timestep, timestep] + (c_timesteps if use_cond else []),
                 pooled_projections=[pooled_prompt_embeds] * 2
-                + (c_projections if use_cond else []),
+                                   + (c_projections if use_cond else []),
                 guidances=[guidance] * 2 + (c_guidances if use_cond else []),
                 return_dict=False,
                 adapters=[main_adapter] * 2 + (c_adapters if use_cond else []),
@@ -657,7 +658,7 @@ def generate(
                     txt_ids=[text_ids],
                     timesteps=[timestep, timestep] + (c_timesteps if use_cond else []),
                     pooled_projections=[pooled_prompt_embeds] * 2
-                    + (c_projections if use_cond else []),
+                                       + (c_projections if use_cond else []),
                     guidances=[guidance] * 2 + (c_guidances if use_cond else []),
                     return_dict=False,
                     adapters=[main_adapter] * 2 + (c_adapters if use_cond else []),
@@ -689,7 +690,7 @@ def generate(
 
             # call the callback, if provided
             if i == len(timesteps) - 1 or (
-                (i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0
+                    (i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0
             ):
                 progress_bar.update()
 
@@ -720,8 +721,8 @@ def generate(
     else:
         latents = self._unpack_latents(latents, height, width, self.vae_scale_factor)
         latents = (
-            latents / self.vae.config.scaling_factor
-        ) + self.vae.config.shift_factor
+                          latents / self.vae.config.scaling_factor
+                  ) + self.vae.config.shift_factor
         image = self.vae.decode(latents, return_dict=False)[0]
         image = self.image_processor.postprocess(image, output_type=output_type)
 
@@ -732,3 +733,306 @@ def generate(
         return (image,)
 
     return FluxPipelineOutput(images=image)
+
+
+def generate_instance(
+        pipeline,
+        prompt: Union[str, List[str]] = None,
+        prompt_2: Optional[Union[str, List[str]]] = None,
+        height: Optional[int] = 256,
+        width: Optional[int] = 256,
+        num_inference_steps: int = 28,
+        timesteps: List[int] = None,
+        guidance_scale: float = 3.5,
+        num_images_per_prompt: Optional[int] = 1,
+        generator: Optional[Union[torch.Generator, List[torch.Generator]]] = None,
+        latents: Optional[torch.FloatTensor] = None,
+        prompt_embeds: Optional[torch.FloatTensor] = None,
+        pooled_prompt_embeds: Optional[torch.FloatTensor] = None,
+        output_type: Optional[str] = "pil",
+        return_dict: bool = True,
+        joint_attention_kwargs: Optional[Dict[str, Any]] = None,
+        callback_on_step_end: Optional[Callable[[int, int, Dict], None]] = None,
+        callback_on_step_end_tensor_inputs: List[str] = ["latents"],
+        max_sequence_length: int = 512,
+        # Condition Parameters
+        main_adapter: Optional[str] = "default",
+        conditions: List[Condition] = [],
+        box_texts: Optional[List[str]] = None,             # NEW
+        image_guidance_scale: float = 1.0,
+        transformer_kwargs: Optional[Dict[str, Any]] = {},
+        kv_cache: bool = False,
+        latent_mask=None,
+        independent_condition: bool = True,                # NEW (match training)
+        **params: dict,
+):
+    self = pipeline
+
+    height = height or self.default_sample_size * self.vae_scale_factor
+    width  = width  or self.default_sample_size * self.vae_scale_factor
+
+    self.check_inputs(
+        prompt,
+        prompt_2,
+        height,
+        width,
+        prompt_embeds=prompt_embeds,
+        pooled_prompt_embeds=pooled_prompt_embeds,
+        callback_on_step_end_tensor_inputs=callback_on_step_end_tensor_inputs,
+        max_sequence_length=max_sequence_length,
+    )
+
+    self._guidance_scale = guidance_scale
+    self._joint_attention_kwargs = joint_attention_kwargs
+
+    # batch size
+    if prompt is not None and isinstance(prompt, str):
+        batch_size = 1
+    elif isinstance(prompt, list):
+        batch_size = len(prompt)
+    else:
+        batch_size = prompt_embeds.shape[0]
+
+    device = self._execution_device
+
+    # --- Global prompt
+    prompt_embeds, pooled_prompt_embeds, text_ids = self.encode_prompt(
+        prompt=prompt,
+        prompt_2=prompt_2,
+        prompt_embeds=prompt_embeds,
+        pooled_prompt_embeds=pooled_prompt_embeds,
+        device=device,
+        num_images_per_prompt=num_images_per_prompt,
+        max_sequence_length=max_sequence_length,
+    )
+
+    # --- Prepare latents
+    num_channels_latents = self.transformer.config.in_channels // 4
+    latents, latent_image_ids = self.prepare_latents(
+        batch_size * num_images_per_prompt,
+        num_channels_latents,
+        height,
+        width,
+        prompt_embeds.dtype,
+        device,
+        generator,
+        latents,
+        )
+
+    if latent_mask is not None:
+        latent_mask = latent_mask.T.reshape(-1)
+        latents = latents[:, latent_mask]
+        latent_image_ids = latent_image_ids[latent_mask]
+
+    # --- Encode condition branches (image-like tokens)
+    c_latents, uc_latents, c_ids, c_timesteps = [], [], [], []
+    c_projections, c_guidances, c_adapters = [], [], []
+    complement_cond = None
+
+    for cond in conditions:
+        tokens, ids = cond.encode(self)                    # (B,Tk,C), (Tk,3)
+        c_latents.append(tokens)
+        # optional uncond image for image guidance
+        if image_guidance_scale != 1.0:
+            uc_latents.append(cond.encode(self, empty=True)[0])
+        c_ids.append(ids)
+        c_timesteps.append(torch.zeros([1], device=device))
+        c_projections.append(pooled_prompt_embeds)
+        c_guidances.append(torch.ones([1], device=device))
+        c_adapters.append(cond.adapter or main_adapter)
+        if cond.is_complement:
+            complement_cond = (tokens, ids)
+
+    # --- Optional per-box text branches (NEW)
+    box_text_embeds, box_pooled, box_text_ids = [], [], []
+    if box_texts is not None and len(box_texts) > 0:
+        assert len(box_texts) == len(conditions), "len(box_texts) must match len(conditions)"
+        for bt in box_texts:
+            pe, pool, tids = self.encode_prompt(
+                prompt=bt,
+                prompt_2=None,
+                prompt_embeds=None,
+                pooled_prompt_embeds=None,
+                device=device,
+                num_images_per_prompt=1,
+                max_sequence_length=max_sequence_length,
+            )
+            box_text_embeds.append(pe)
+            box_pooled.append(pool)
+            box_text_ids.append(tids)
+
+    # --- Timesteps (FLUX-specific shift like your version)
+    sigmas = np.linspace(1.0, 1 / num_inference_steps, num_inference_steps)
+    image_seq_len = latents.shape[1]
+    mu = calculate_shift(
+        image_seq_len,
+        self.scheduler.config.base_image_seq_len,
+        self.scheduler.config.max_image_seq_len,
+        self.scheduler.config.base_shift,
+        self.scheduler.config.max_shift,
+    )
+    timesteps, num_inference_steps = retrieve_timesteps(
+        self.scheduler, num_inference_steps, device, timesteps, sigmas, mu=mu
+    )
+    num_warmup_steps = max(len(timesteps) - num_inference_steps * self.scheduler.order, 0)
+    self._num_timesteps = len(timesteps)
+
+    # --- (optional) KV cache init
+    if kv_cache:
+        attn_counter = 0
+        for module in self.transformer.modules():
+            if isinstance(module, Attention):
+                setattr(module, "cache_idx", attn_counter)
+                attn_counter += 1
+        kv_cond   = [[[], []] for _ in range(attn_counter)]
+        kv_uncond = [[[], []] for _ in range(attn_counter)]
+        def clear_cache():
+            for storage in [kv_cond, kv_uncond]:
+                for keys, values in storage:
+                    keys.clear(); values.clear()
+
+
+    ## how to figure out the group mask automatically?
+
+
+    # --- Assemble branch lists (match training layout)
+    # text branches: [global] + [per-box text...]
+    text_features = [prompt_embeds] + box_text_embeds
+    txt_ids       = [text_ids]      + box_text_ids
+    # image branches: [image latents] + [conditions...]
+    image_features = [latents] + c_latents
+    img_ids_list   = [latent_image_ids] + c_ids
+
+    # timesteps/pools/guidance/adapters aligned to (text + image) order
+    # step_list   = [None] * (len(text_features) + len(image_features))
+    pooled = [pooled_prompt_embeds] + box_pooled + [pooled_prompt_embeds] * (1 + len(c_latents))
+    if self.transformer.config.guidance_embeds:
+        guidance = torch.tensor([guidance_scale], device=device)
+        guidance = guidance.expand(latents.shape[0])
+    else:
+        guidance = None
+        # keep shapes aligned
+        guidances_text  = [None] * len(text_features)
+        guidances_image = [None] * len(image_features)
+
+    # adapters: text branches use None, image uses [None] + [main_adapter or per-cond adapter...]
+    adapters = [None] * len(text_features) + [None] + ["default"] * len(c_latents)
+
+    # group mask like training (text first, then image branches)
+    group_mask = build_group_mask(
+        num_text=len(text_features),
+        num_image=len(image_features),
+        num_boxes=len(c_latents),
+        device=device,
+        independent_condition=independent_condition,
+    )
+
+    # --- Denoising loop
+    with self.progress_bar(total=num_inference_steps) as progress_bar:
+        for i, t in enumerate(timesteps):
+            timestep = t.expand(latents.shape[0]).to(latents.dtype) / 1000
+
+            if self.transformer.config.guidance_embeds:
+                guidance = torch.tensor([guidance_scale], device=device)
+                guidance = guidance.expand(latents.shape[0])
+            else:
+                guidance = None
+                # keep shapes aligned
+                guidances_text  = [None] * len(text_features)
+                guidances_image = [None] * len(image_features)
+
+            if kv_cache:
+                mode = "write" if i == 0 else "read"
+                if mode == "write":
+                    clear_cache()
+            use_cond = (not kv_cache) or (kv_cache and mode == "write")
+            guidances = guidances_text + ([guidance] + (c_guidances if use_cond else []))
+            # Fill the per-branch timestep list
+            timesteps_list = [timestep] * len(text_features) + [timestep]  # image main
+            if use_cond:
+                timesteps_list += [torch.zeros([1], device=device)] * len(c_latents)
+
+            noise_pred = transformer_forward(
+                self.transformer,
+                image_features=image_features,
+                text_features=text_features,
+                img_ids=img_ids_list,
+                txt_ids=txt_ids,
+                timesteps=timesteps_list,
+                pooled_projections=pooled,
+                guidances=guidances,
+                adapters=adapters,
+                cache_mode=mode if kv_cache else None,
+                cache_storage=(kv_cond if kv_cache else None),
+                to_cache=[False]*len(text_features) + [False] + ([True]*len(c_latents) if use_cond else []),
+                group_mask=group_mask,
+                **transformer_kwargs,
+            )[0]
+
+            if image_guidance_scale != 1.0:
+                unc_pred = transformer_forward(
+                    self.transformer,
+                    image_features=image_features,
+                    text_features=text_features,
+                    img_ids=img_ids_list,
+                    txt_ids=txt_ids,
+                    timesteps=timesteps_list,
+                    pooled_projections=pooled,
+                    guidances=guidances,
+                    adapters=adapters,
+                    cache_mode=("write" if kv_cache and i == 0 else ("read" if kv_cache else None)),
+                    cache_storage=(kv_uncond if kv_cache else None),
+                    to_cache=[False]*len(text_features) + [False] + ([True]*len(c_latents) if use_cond else []),
+                    **transformer_kwargs,
+                )[0]
+                noise_pred = unc_pred + image_guidance_scale * (noise_pred - unc_pred)
+
+            latents_dtype = latents.dtype
+            latents = self.scheduler.step(noise_pred, t, latents)[0]
+            if latents.dtype != latents_dtype and torch.backends.mps.is_available():
+                latents = latents.to(latents_dtype)
+
+            if callback_on_step_end is not None:
+                callback_kwargs = {}
+                for k in callback_on_step_end_tensor_inputs:
+                    callback_kwargs[k] = locals()[k]
+                callback_outputs = callback_on_step_end(self, i, t, callback_kwargs)
+                latents       = callback_outputs.pop("latents", latents)
+                prompt_embeds = callback_outputs.pop("prompt_embeds", prompt_embeds)
+
+            if i == len(timesteps) - 1 or ((i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0):
+                progress_bar.update()
+
+    if latent_mask is not None:
+        assert complement_cond is not None
+        comp_latent, comp_ids = complement_cond
+        all_ids = torch.cat([latent_image_ids, comp_ids], dim=0)
+        shape = (all_ids.max(dim=0).values + 1).to(torch.long)
+        H, W = shape[1].item(), shape[2].item()
+        B, _, C = latents.shape
+        canvas = latents.new_zeros(B, H * W, C)
+
+        def _stash(canvas, tokens, ids, H, W) -> None:
+            B, T, C = tokens.shape
+            ids = ids.to(torch.long)
+            flat_idx = (ids[:, 1] * W + ids[:, 2]).to(torch.long)
+            canvas.view(B, -1, C).index_copy_(1, flat_idx, tokens)
+
+        _stash(canvas, latents, latent_image_ids, H, W)
+        _stash(canvas, comp_latent, comp_ids, H, W)
+        latents = canvas.view(B, H * W, C)
+
+    if output_type == "latent":
+        image = latents
+    else:
+        latents = self._unpack_latents(latents, height, width, self.vae_scale_factor)
+        latents = (latents / self.vae.config.scaling_factor) + self.vae.config.shift_factor
+        image = self.vae.decode(latents, return_dict=False)[0]
+        image = self.image_processor.postprocess(image, output_type=output_type)
+
+    self.maybe_free_model_hooks()
+
+    if not return_dict:
+        return (image,)
+
+    return FluxPipelineOutput(images=image),

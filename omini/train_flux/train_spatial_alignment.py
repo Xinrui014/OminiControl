@@ -9,8 +9,8 @@ from PIL import Image, ImageDraw
 
 from datasets import load_dataset
 
-from .trainer import OminiModel, get_config, train
-from ..pipeline.flux_omini import Condition, convert_to_condition, generate
+from trainer import OminiModel, get_config, train
+from omini.pipeline.flux_omini import Condition, convert_to_condition, generate
 
 
 class ImageConditionDataset(Dataset):
@@ -174,13 +174,15 @@ def main():
     torch.cuda.set_device(int(os.environ.get("LOCAL_RANK", 0)))
 
     # Load dataset text-to-image-2M
-    dataset = load_dataset(
-        "webdataset",
-        data_files={"train": training_config["dataset"]["urls"]},
-        split="train",
-        cache_dir="cache/t2i2m",
-        num_proc=32,
-    )
+    # dataset = load_dataset(
+    #     "webdataset",
+    #     data_files={"train": training_config["dataset"]["urls"]},
+    #     split="train",
+    #     cache_dir="cache/t2i2m",
+    #     num_proc=32,
+    # )
+
+    dataset = load_dataset("jackyhate/text-to-image-2M")
 
     # Initialize custom dataset
     dataset = ImageConditionDataset(
