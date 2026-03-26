@@ -1,0 +1,21 @@
+
+# Runtime artifacts
+__pycache__/
+*.pyc
+cache/
+.idea/
+
+# Large files / outputs
+runs/
+ckpts/
+wandb/
+omini/train_flux/runs/
+omini/train_flux/wandb/
+pipeline_output/
+inference_pcb_output/
+tiled_output/
+*.log
+
+# Test artifacts
+test_composite_1280x720.png
+omini/train_flux/Dataloader/test.png
