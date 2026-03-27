@@ -1,0 +1,60 @@
+flux_path: "black-forest-labs/FLUX.1-dev"
+dtype: "bfloat16"
+
+model:
+  independent_condition: false
+
+train:
+  accumulate_grad_batches: 2         # effective bs = batch_size * accum * n_gpus = 2*2*4 = 16
+  batch_size: 2
+  dataloader_workers: 4
+  save_interval: 2000
+  sample_interval: 2000
+  max_steps: 30000                   # More steps for larger dataset (35k samples)
+  gradient_checkpointing: true
+  save_path: "runs"
+  gradient_clip_val: 0.5
+
+  condition_type: "pcb_harmonize"
+
+  dataset:
+    # v2 data paths
+    anno_dir: "/home/xinrui/projects/data/ti_pcb/COCO_label/annotation/train"
+    image_dir: "/home/xinrui/projects/data/ti_pcb/images_top"
+    v2_jsonl: "/home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/train.jsonl"
+    v2_test_jsonl: "/home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/test.jsonl"
+
+    condition_size:
+      - 512
+      - 512
+    target_size:
+      - 512
+      - 512
+
+    # On-the-fly pasting config
+    crops_per_board: 10              # 3,515 boards * 10 = 35,150 samples/epoch
+    resize_jitter: 0.15             # ±15% random resize on pasted components
+    min_visible_ratio: 0.5          # Include component if ≥50% visible in crop
+    min_components: 2               # Skip crops with fewer components
+    edge_margin: 5                  # Skip pool components within 5px of board edge
+
+    # Classifier-free guidance dropout
+    drop_text_prob: 0.1
+    drop_image_prob: 0.1
+
+  lora_config:
+    r: 16
+    lora_alpha: 16
+    init_lora_weights: "gaussian"
+    target_modules: "(.*x_embedder|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_v|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_out\\.0|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff\\.net\\.2|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.proj_mlp|.*single_transformer_blocks\\.[0-9]+\\.proj_out|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q|.*single_transformer_blocks\\.[0-9]+\\.attn.to_v|.*single_transformer_blocks\\.[0-9]+\\.attn.to_out)"
+
+  optimizer:
+    type: "Prodigy"
+    params:
+      lr: 1
+      use_bias_correction: true
+      safeguard_warmup: true
+      weight_decay: 0.01
+
+  wandb:
+    project: "OminiControl-PCB"

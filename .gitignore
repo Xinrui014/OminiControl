@@ -19,3 +19,8 @@ tiled_output/
 # Test artifacts
 test_composite_1280x720.png
 omini/train_flux/Dataloader/test.png
+pipeline_v2_output/
+patch_v2_output/
+infer_v2.log
+patch_v2.log
+test_composite_1280x720.png
