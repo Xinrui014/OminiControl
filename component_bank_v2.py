@@ -7,11 +7,12 @@ Loads components from per-board COCO annotation JSONs (float coordinates,
 Data layout:
     anno_dir/         — per-board COCO JSON files (<board>.json)
     image_dir/        — 1280×720 board PNG images (<board>.png)
-    board_colors/     — optional: path to board_colors_v2.json (list of {board, color, ...})
-                        Only needed when annotation JSONs don't have a 'board_color' field.
 
-Compatible with both train annotations (raw_anno/final_annotations — no board_color field)
-and test annotations (annotation_pipeline/test_output/annotation — has board_color field).
+Each annotation JSON has:
+    - images: board metadata (width, height)
+    - categories: component types
+    - annotations: bboxes with category_id
+    - board_color: PCB color (green/blue/red/black/white) — NEW in v2
 """
 import json
 import os
@@ -53,8 +54,7 @@ class ComponentBankV2:
     Component pool built from per-board COCO annotation JSON files + 1280×720 board images.
 
     Loads annotations from `anno_dir/<board>.json` (COCO format with float bboxes).
-    Board colors are read from the JSON file's `board_color` field if present,
-    or from a separate `board_colors_v2.json` lookup.
+    Board colors are read directly from the JSON's `board_color` field.
 
     Supports:
     - Category matching
@@ -67,33 +67,19 @@ class ComponentBankV2:
         self,
         anno_dir: str,
         image_dir: str,
-        board_colors_json: Optional[str] = None,
         edge_margin: int = 5,
         max_cache: int = 300,
     ):
         """
         Args:
-            anno_dir:          Directory with per-board COCO JSONs (<board>.json)
-            image_dir:         Directory with 1280×720 board images (<board>.png)
-            board_colors_json: Optional path to board_colors_v2.json (list of {board, color, ...})
-                               Only needed if annotation files don't have a 'board_color' field.
-            edge_margin:       Skip components within this many pixels of image edge
-            max_cache:         Max board images to cache in memory
+            anno_dir:      Directory with per-board COCO JSONs (<board>.json)
+            image_dir:     Directory with 1280×720 board PNG images (<board>.png)
+            edge_margin:   Skip components within this many pixels of image edge
+            max_cache:     Max board images to cache in memory
         """
         self.image_dir = image_dir
         self.max_cache = max_cache
         self._img_cache: Dict[str, Image.Image] = {}
-
-        # Build board_color lookup from external JSON if provided
-        color_lookup: Dict[str, str] = {}
-        if board_colors_json and os.path.exists(board_colors_json):
-            raw = json.load(open(board_colors_json))
-            if isinstance(raw, list):
-                for entry in raw:
-                    color_lookup[entry["board"]] = entry.get("color", "green")
-            elif isinstance(raw, dict):
-                color_lookup = raw
-            print(f"[ComponentBankV2] Loaded {len(color_lookup)} board colors from {board_colors_json}")
 
         # Build component pool
         self.by_category: Dict[str, List[ComponentEntry]] = defaultdict(list)
@@ -104,6 +90,7 @@ class ComponentBankV2:
         boards_loaded = 0
         boards_missing_image = 0
         boards_empty = 0
+        color_counts = defaultdict(int)
 
         anno_files = sorted(Path(anno_dir).glob("*.json"))
         print(f"[ComponentBankV2] Loading from {anno_dir} ({len(anno_files)} boards)...")
@@ -120,12 +107,8 @@ class ComponentBankV2:
             with open(anno_path) as f:
                 data = json.load(f)
 
-            # Get board color: prefer embedded field, fallback to lookup, default green
-            board_color = (
-                data.get("board_color")
-                or color_lookup.get(board_name)
-                or "green"
-            )
+            # Get board color from embedded field (now standard in v2 JSONs)
+            board_color = data.get("board_color", "green")
 
             # Get image dimensions
             img_info = data["images"][0] if data.get("images") else None
@@ -143,9 +126,6 @@ class ComponentBankV2:
                 cat_id = ann.get("category_id")
                 cat_name = CAT_ID_TO_NAME.get(cat_id)
                 if cat_name is None:
-                    # Try resolving via category name from categories list
-                    if "categories" in data and not hasattr(self, "_cat_cache"):
-                        pass
                     continue
 
                 x, y, w, h = ann["bbox"]
@@ -167,6 +147,7 @@ class ComponentBankV2:
 
             if board_components > 0:
                 boards_loaded += 1
+                color_counts[board_color] += board_components
 
         print(f"[ComponentBankV2] Loaded {total} components from {boards_loaded} boards")
         if boards_missing_image:
@@ -176,9 +157,6 @@ class ComponentBankV2:
         print(f"  Skipped {skipped_edge} edge components (margin={edge_margin}px)")
         for cat in sorted(self.by_category.keys()):
             print(f"  {cat}: {len(self.by_category[cat])}")
-        color_counts = defaultdict(int)
-        for (cat, color), entries in self.by_cat_color.items():
-            color_counts[color] += len(entries)
         print("  Color breakdown:")
         for color, count in sorted(color_counts.items()):
             print(f"    {color}: {count}")
