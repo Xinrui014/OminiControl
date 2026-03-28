@@ -263,8 +263,15 @@ class OminiModel(L.LightningModule):
         )
         pred = transformer_out[0]
 
-        # Compute loss
-        step_loss = torch.nn.functional.mse_loss(pred, (x_1 - x_0), reduction="mean")
+        # Compute loss (with optional component-aware weighting)
+        target = x_1 - x_0
+        loss_weight_mask = batch.get("loss_weight_mask", None)
+        if loss_weight_mask is not None:
+            # loss_weight_mask shape: (B, n_tokens) → (B, n_tokens, 1)
+            w = loss_weight_mask.to(pred.device, pred.dtype).unsqueeze(-1)
+            step_loss = (w * (pred - target) ** 2).mean()
+        else:
+            step_loss = torch.nn.functional.mse_loss(pred, target, reduction="mean")
         self.last_t = t.mean().item()
 
         self.log_loss = (

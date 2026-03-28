@@ -84,13 +84,18 @@ def make_prompt(board_color: str, annotations: list) -> str:
 
 class PCBHarmonizeDatasetV2(Dataset):
     """
-    On-the-fly composite pasting dataset for v2 harmonization training.
+    On-the-fly composite pasting dataset for v2.1 harmonization training.
 
     Each sample:
     1. Pick a board from v2 train set
-    2. Sample a random 512×512 crop location
+    2. Sample a random crop location (512×512 or zoom crop for small components)
     3. Build composite by pasting matched components from the pool
-    4. Return (composite, real_patch, prompt)
+    4. Return (composite, real_patch, prompt, component_weight_mask)
+
+    v2.1 additions:
+    - Multi-scale crops: 40% chance of 256×256 zoom crop (upscaled to 512×512)
+      to improve small component detail
+    - Component-aware loss mask: higher weight on component regions in latent space
     """
 
     def __init__(
@@ -107,6 +112,9 @@ class PCBHarmonizeDatasetV2(Dataset):
         min_visible_ratio: float = 0.5,
         min_components: int = 2,
         component_bank: ComponentBankV2 = None,
+        zoom_prob: float = 0.4,
+        zoom_crop_size: int = 256,
+        component_loss_weight: float = 3.0,
     ):
         self.anno_dir = anno_dir
         self.image_dir = image_dir
@@ -119,6 +127,9 @@ class PCBHarmonizeDatasetV2(Dataset):
         self.min_components = min_components
         self.bank = component_bank
         self.to_tensor = T.ToTensor()
+        self.zoom_prob = zoom_prob
+        self.zoom_crop_size = zoom_crop_size
+        self.component_loss_weight = component_loss_weight
 
         # Load v2 board list with metadata
         self.boards = []
@@ -163,13 +174,38 @@ class PCBHarmonizeDatasetV2(Dataset):
         y = random.randint(0, max(0, img_h - crop_h))
         return x, y
 
+    def _build_latent_weight_mask(self, annotations, crop_w, crop_h):
+        """Build a weight mask in FLUX packed-latent space for component-aware loss.
+
+        FLUX VAE: 512×512 → 64×64 latents, then packed into 2×2 patches → 32×32 tokens.
+        Each token covers a 16×16 pixel region in the original image.
+        For zoom crops (256→512), coordinates are already in the upscaled 512 space.
+        """
+        # Latent grid before packing: 64×64 (each cell = 8×8 pixels)
+        # After 2×2 packing: 32×32 tokens (each token = 16×16 pixels)
+        token_grid_h = crop_h // 16
+        token_grid_w = crop_w // 16
+        mask = np.ones((token_grid_h, token_grid_w), dtype=np.float32)
+
+        for ann in annotations:
+            x, y, w, h = ann["bbox"]
+            # Map pixel coords to token grid
+            tx1 = max(0, int(x / 16))
+            ty1 = max(0, int(y / 16))
+            tx2 = min(token_grid_w, int((x + w) / 16) + 1)
+            ty2 = min(token_grid_h, int((y + h) / 16) + 1)
+            mask[ty1:ty2, tx1:tx2] = self.component_loss_weight
+
+        # Flatten to match packed latent sequence: (32*32,) = (1024,)
+        return mask.flatten()
+
     def __getitem__(self, idx):
         board_idx, crop_idx = self.samples[idx]
         board = self.boards[board_idx]
         board_name = board["name"]
         board_color = board["color"]
 
-        crop_w, crop_h = self.target_size
+        target_w, target_h = self.target_size
 
         # Load board image
         img_path = os.path.join(self.image_dir, f"{board_name}.png")
@@ -179,17 +215,32 @@ class PCBHarmonizeDatasetV2(Dataset):
         # Get annotations
         all_annotations = self._annotations.get(board_name, [])
 
+        # Decide crop size: zoom (256) or normal (512)
+        use_zoom = random.random() < self.zoom_prob
+        crop_size = self.zoom_crop_size if use_zoom else target_w
+
         # Try up to 5 random crop positions to find one with enough components
         for attempt in range(5):
-            cx, cy = self._random_crop_position(img_w, img_h, crop_w, crop_h)
+            cx, cy = self._random_crop_position(img_w, img_h, crop_size, crop_size)
             crop_annotations = get_annotations_in_crop(
-                all_annotations, cx, cy, crop_w, self.min_visible_ratio
+                all_annotations, cx, cy, crop_size, self.min_visible_ratio
             )
             if len(crop_annotations) >= self.min_components:
                 break
 
         # Real patch (ground truth target)
-        real_patch = board_img.crop((cx, cy, cx + crop_w, cy + crop_h))
+        real_patch = board_img.crop((cx, cy, cx + crop_size, cy + crop_size))
+
+        if use_zoom:
+            # Upscale both real patch and annotations to 512×512
+            scale = target_w / crop_size  # 512/256 = 2.0
+            real_patch = real_patch.resize((target_w, target_h), Image.LANCZOS)
+            # Scale annotation bboxes to match upscaled coordinates
+            crop_annotations = [
+                {**ann, "bbox": (ann["bbox"][0] * scale, ann["bbox"][1] * scale,
+                                 ann["bbox"][2] * scale, ann["bbox"][3] * scale)}
+                for ann in crop_annotations
+            ]
 
         # Build composite on-the-fly
         if random.random() < self.drop_image_prob:
@@ -197,8 +248,11 @@ class PCBHarmonizeDatasetV2(Dataset):
             composite = Image.new("RGB", self.condition_size, (255, 255, 255))
         else:
             composite = self._build_composite(
-                crop_annotations, board_name, board_color, crop_w, crop_h
+                crop_annotations, board_name, board_color, target_w, target_h
             )
+
+        # Build component-aware loss weight mask
+        weight_mask = self._build_latent_weight_mask(crop_annotations, target_w, target_h)
 
         # Generate prompt
         if random.random() < self.drop_text_prob:
@@ -212,6 +266,7 @@ class PCBHarmonizeDatasetV2(Dataset):
             "condition_type_0": "pcb_harmonize",
             "position_delta_0": np.array([0, 0]),
             "description": description,
+            "loss_weight_mask": weight_mask,
         }
 
     def _build_composite(
@@ -373,6 +428,9 @@ def main():
         min_visible_ratio=dataset_cfg.get("min_visible_ratio", 0.5),
         min_components=dataset_cfg.get("min_components", 2),
         component_bank=bank,
+        zoom_prob=dataset_cfg.get("zoom_prob", 0.4),
+        zoom_crop_size=dataset_cfg.get("zoom_crop_size", 256),
+        component_loss_weight=dataset_cfg.get("component_loss_weight", 3.0),
     )
 
     trainable_model = OminiModel(

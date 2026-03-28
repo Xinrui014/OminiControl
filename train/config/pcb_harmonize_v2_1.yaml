@@ -1,0 +1,68 @@
+flux_path: "black-forest-labs/FLUX.1-dev"
+dtype: "bfloat16"
+
+model:
+  independent_condition: false
+
+train:
+  accumulate_grad_batches: 2         # effective bs = batch_size * accum * n_gpus = 2*2*4 = 16
+  batch_size: 2
+  dataloader_workers: 4
+  save_interval: 1000
+  sample_interval: 1000
+  max_steps: 8000                    # Shorter run — fine-tuning from 12k base
+  gradient_checkpointing: true
+  save_path: "runs"
+  gradient_clip_val: 0.5
+
+  condition_type: "pcb_harmonize"
+
+  # Resume from v2 base checkpoint
+  lora_path: "/home/xinrui/projects/OminiControl/runs/20260327-022340/ckpt/12000"
+
+  dataset:
+    # v2 data paths
+    anno_dir: "/home/xinrui/projects/data/ti_pcb/COCO_label/annotation/train"
+    image_dir: "/home/xinrui/projects/data/ti_pcb/images_top"
+    v2_jsonl: "/home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/train.jsonl"
+    v2_test_jsonl: "/home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/test.jsonl"
+
+    condition_size:
+      - 512
+      - 512
+    target_size:
+      - 512
+      - 512
+
+    # On-the-fly pasting config
+    crops_per_board: 10
+    resize_jitter: 0.15
+    min_visible_ratio: 0.5
+    min_components: 2
+    edge_margin: 5
+
+    # Classifier-free guidance dropout
+    drop_text_prob: 0.1
+    drop_image_prob: 0.1
+
+    # v2.1: Multi-scale crop for small component detail
+    zoom_prob: 0.4                   # 40% chance of 256×256 zoom crop
+    zoom_crop_size: 256              # Zoom crop size (upscaled to 512×512)
+
+    # v2.1: Component-aware loss weighting
+    component_loss_weight: 3.0       # 3x weight on component regions
+
+  lora_config:
+    r: 16
+    lora_alpha: 16
+    init_lora_weights: "gaussian"
+    target_modules: "(.*x_embedder|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_v|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_out\\.0|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff\\.net\\.2|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.proj_mlp|.*single_transformer_blocks\\.[0-9]+\\.proj_out|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q|.*single_transformer_blocks\\.[0-9]+\\.attn.to_v|.*single_transformer_blocks\\.[0-9]+\\.attn.to_out)"
+
+  optimizer:
+    type: "AdamW"
+    params:
+      lr: 1.0e-5                     # Lower LR for fine-tuning
+      weight_decay: 0.01
+
+  wandb:
+    project: "OminiControl-PCB"
