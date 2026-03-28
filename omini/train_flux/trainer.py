@@ -86,14 +86,37 @@ class OminiModel(L.LightningModule):
     def init_lora(self, lora_path: str, lora_config: dict):
         assert lora_path or lora_config
         if lora_path:
-            # TODO: Implement this
-            raise NotImplementedError
+            # Resume from saved LoRA checkpoint
+            # First add fresh adapters with the same config (needed for structure)
+            if lora_config:
+                for adapter_name in self.adapter_set:
+                    self.transformer.add_adapter(
+                        LoraConfig(**lora_config), adapter_name=adapter_name
+                    )
+            # Load saved weights on top
+            from safetensors.torch import load_file
+            for adapter_name in self.adapter_set:
+                weight_file = os.path.join(lora_path, f"{adapter_name}.safetensors")
+                if os.path.exists(weight_file):
+                    state_dict = load_file(weight_file)
+                    # Strip 'transformer.' prefix to match peft naming
+                    clean_state = {}
+                    for k, v in state_dict.items():
+                        new_key = k.replace('transformer.', '', 1) if k.startswith('transformer.') else k
+                        clean_state[new_key] = v
+                    from peft import set_peft_model_state_dict
+                    set_peft_model_state_dict(self.transformer, clean_state, adapter_name=adapter_name)
+                    print(f"Loaded LoRA weights from {weight_file} for adapter '{adapter_name}'")
+                else:
+                    print(f"Warning: {weight_file} not found, using random init for '{adapter_name}'")
+            lora_layers = filter(
+                lambda p: p.requires_grad, self.transformer.parameters()
+            )
         else:
             for adapter_name in self.adapter_set:
                 self.transformer.add_adapter(
                     LoraConfig(**lora_config), adapter_name=adapter_name
                 )
-            # TODO: Check if this is correct (p.requires_grad)
             lora_layers = filter(
                 lambda p: p.requires_grad, self.transformer.parameters()
             )

@@ -114,7 +114,7 @@ def main():
     bank = ComponentBankV2(
         anno_dir=args.anno_dir,
         image_dir=args.image_dir,
-        v2_jsonl=args.train_jsonl,
+        
         edge_margin=5,
     )
 
@@ -131,7 +131,7 @@ def main():
         board_color = meta.get("color", "green")
 
         # Load board image
-        board_path = Path(args.image_dir) / f"{board_name}.png"
+        board_path = Path("/home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/image/test") / f"{board_name}.png"
         if not board_path.exists():
             print(f"[{si+1}] {board_name}: image not found, skipping")
             continue
@@ -139,7 +139,7 @@ def main():
         bw, bh = board_img.size
 
         # Load annotations
-        anno_path = Path(args.anno_dir) / f"{board_name}.json"
+        anno_path = Path(args.anno_dir.replace("annotation/train", "annotation/test")) / f"{board_name}.json"
         if not anno_path.exists():
             print(f"[{si+1}] {board_name}: annotations not found, skipping")
             continue

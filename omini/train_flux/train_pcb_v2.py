@@ -356,7 +356,6 @@ def main():
     bank = ComponentBankV2(
         anno_dir=dataset_cfg["anno_dir"],
         image_dir=dataset_cfg["image_dir"],
-        v2_jsonl=dataset_cfg["v2_jsonl"],
         edge_margin=dataset_cfg.get("edge_margin", 5),
     )
 
@@ -378,7 +377,8 @@ def main():
 
     trainable_model = OminiModel(
         flux_pipe_id=config["flux_path"],
-        lora_config=training_config["lora_config"],
+        lora_config=training_config.get("lora_config"),
+        lora_path=training_config.get("lora_path"),
         device="cuda",
         dtype=getattr(torch, config["dtype"]),
         optimizer_config=training_config["optimizer"],
