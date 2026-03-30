@@ -1,0 +1,5172 @@
+[
+  {
+    "patch_id": "3220dfp-dglevm-top_p0_467_34",
+    "board": "3220dfp-dglevm-top",
+    "board_color": "black",
+    "crop_x": 467,
+    "crop_y": 34,
+    "crop_size": 512,
+    "n_components": 7,
+    "annotations": [
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          273.3,
+          360.1,
+          140.9,
+          139.0
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          418.7,
+          369.6,
+          65.1,
+          70.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          250.4,
+          180.5,
+          81.4,
+          135.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          427,
+          158.7,
+          48.0,
+          74.1
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          424.8,
+          240.1,
+          59.6,
+          82.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          341.3,
+          257.9,
+          29.1,
+          13.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          340.4,
+          270.3,
+          33.0,
+          12.9
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "3220dfp-dglevm-top_p1_736_129",
+    "board": "3220dfp-dglevm-top",
+    "board_color": "black",
+    "crop_x": 736,
+    "crop_y": 129,
+    "crop_size": 512,
+    "n_components": 8,
+    "annotations": [
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          4.3,
+          265.1,
+          140.9,
+          139.0
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          149.7,
+          274.6,
+          65.1,
+          70.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          0,
+          85.5,
+          62.8,
+          135.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          158,
+          63.7,
+          48.0,
+          74.1
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          155.8,
+          145.1,
+          59.6,
+          82.8
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          247.0,
+          110.4,
+          265.0,
+          249.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          72.3,
+          162.9,
+          29.1,
+          13.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          71.4,
+          175.3,
+          33.0,
+          12.9
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "3220dfp-dglevm-top_p2_652_70",
+    "board": "3220dfp-dglevm-top",
+    "board_color": "black",
+    "crop_x": 652,
+    "crop_y": 70,
+    "crop_size": 512,
+    "n_components": 8,
+    "annotations": [
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          88.3,
+          324.1,
+          140.9,
+          139.0
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          233.7,
+          333.6,
+          65.1,
+          70.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          65.4,
+          144.5,
+          81.4,
+          135.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          242,
+          122.7,
+          48.0,
+          74.1
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          239.8,
+          204.1,
+          59.6,
+          82.8
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          331.0,
+          169.4,
+          181.0,
+          249.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          156.3,
+          221.9,
+          29.1,
+          13.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          155.4,
+          234.3,
+          33.0,
+          12.9
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "adc08dj5200rfevm-top_p0_555_119",
+    "board": "adc08dj5200rfevm-top",
+    "board_color": "red",
+    "crop_x": 555,
+    "crop_y": 119,
+    "crop_size": 512,
+    "n_components": 26,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          89.3,
+          77.8,
+          53.5,
+          52.0
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          38.4,
+          154.3,
+          49.0,
+          49.6
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          144.8,
+          242.8,
+          49.7,
+          46.3
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          70.5,
+          331.4,
+          15.5,
+          23.2
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          47.6,
+          335.4,
+          16.3,
+          16.3
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          29.3,
+          336.6,
+          13.6,
+          18.7
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          12.6,
+          337.4,
+          15.8,
+          14.2
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          200.3,
+          70.4,
+          42.4,
+          44.3
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          143.7,
+          68.5,
+          50.3,
+          46.2
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          228.2,
+          123.8,
+          62.8,
+          58.1
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          292.3,
+          68.4,
+          54.5,
+          42.5
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          346.8,
+          126.2,
+          57.3,
+          53.5
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          216.6,
+          217.2,
+          40.6,
+          36.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          293.1,
+          213.9,
+          64.6,
+          57.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          292.3,
+          318.7,
+          54.9,
+          49.4
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          349.2,
+          297.2,
+          56.9,
+          63.5
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          293.3,
+          379.8,
+          56.4,
+          41.6
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          233.1,
+          303.4,
+          57.8,
+          50.2
+        ]
+      },
+      {
+        "category_id": 8,
+        "category_name": "TRANSISTOR",
+        "bbox": [
+          149.3,
+          332.9,
+          26.0,
+          24.9
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          115.3,
+          358.9,
+          22.1,
+          9.9
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          115.0,
+          371.7,
+          25.6,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          240.7,
+          197.6,
+          11.7,
+          16.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          226.6,
+          197.5,
+          11.2,
+          16.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          254.3,
+          208.4,
+          6.4,
+          14.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          202.6,
+          223.9,
+          16.0,
+          7.0
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          294.6,
+          112.7,
+          50.6,
+          53.5
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "adc08dj5200rfevm-top_p1_29_99",
+    "board": "adc08dj5200rfevm-top",
+    "board_color": "red",
+    "crop_x": 29,
+    "crop_y": 99,
+    "crop_size": 512,
+    "n_components": 89,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          4.4,
+          143,
+          87.7,
+          56.1
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          0,
+          304.5,
+          66.4,
+          67.6
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          296.1,
+          97.3,
+          73.1,
+          70.3
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          293.3,
+          185.8,
+          75.8,
+          65.9
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          298.3,
+          274.8,
+          70.3,
+          68.7
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          300.5,
+          361.1,
+          68.7,
+          68.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          372.3,
+          105.9,
+          22.8,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          395.4,
+          106.3,
+          19.9,
+          26.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          396.9,
+          138.8,
+          20.2,
+          25.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          374.8,
+          135.9,
+          17.3,
+          28.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          374.8,
+          191.5,
+          19.9,
+          28.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          396.9,
+          193.3,
+          20.9,
+          25.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          375.6,
+          224.1,
+          16.6,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          394.3,
+          224.1,
+          24.9,
+          28.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          373.4,
+          276.1,
+          19.1,
+          32.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          395.1,
+          279.7,
+          23.8,
+          30.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          373.9,
+          313.6,
+          19.5,
+          28.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          393.5,
+          314.1,
+          24.8,
+          24.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          373.4,
+          363.4,
+          20.1,
+          33.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          394.7,
+          366.8,
+          19.2,
+          28.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          373.1,
+          398.2,
+          20.1,
+          29.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          394.7,
+          397.0,
+          23.9,
+          31.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          448.5,
+          309.7,
+          21.4,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          242.3,
+          185.3,
+          25.3,
+          11.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          269.6,
+          186.2,
+          23.0,
+          12.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          251.9,
+          199.3,
+          15.4,
+          6.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          270.0,
+          198.8,
+          16.7,
+          7.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          287.4,
+          217.8,
+          9.9,
+          18.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          260.1,
+          246.2,
+          28.2,
+          11.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          241.2,
+          234.4,
+          19.0,
+          9.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          265.0,
+          236.5,
+          18.7,
+          6.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          240.9,
+          272.6,
+          26.0,
+          14.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          268.2,
+          273.7,
+          27.3,
+          13.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          250.8,
+          287.5,
+          17.1,
+          7.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          270.2,
+          287.9,
+          17.1,
+          9.0
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          96.0,
+          138.2,
+          19.6,
+          37.9
+        ]
+      },
+      {
+        "category_id": 8,
+        "category_name": "TRANSISTOR",
+        "bbox": [
+          131.2,
+          141.2,
+          15.0,
+          15.6
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          157.3,
+          142.6,
+          22.5,
+          22.2
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          179.3,
+          200.4,
+          21.2,
+          9.1
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          179.7,
+          225.1,
+          22.0,
+          10.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          180.0,
+          141.1,
+          11.3,
+          20.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          191.8,
+          139.9,
+          14.4,
+          22.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          188.2,
+          278.9,
+          15.2,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          188.0,
+          291.7,
+          15.1,
+          7.1
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          162.1,
+          280.7,
+          24.8,
+          21.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          102.9,
+          284.9,
+          49.2,
+          25.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          88.0,
+          316.4,
+          54.4,
+          45.2
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          37.0,
+          382.1,
+          22.0,
+          9.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          118.8,
+          145.8,
+          12.7,
+          20.4
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          179.6,
+          190.2,
+          21.1,
+          8.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          183.4,
+          215.1,
+          18.3,
+          8.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          176.1,
+          377.0,
+          16.9,
+          13.7
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          181.8,
+          400.0,
+          9.3,
+          12.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          178.3,
+          309.3,
+          11.3,
+          9.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          259.2,
+          419.8,
+          30.8,
+          12.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          287.6,
+          391.6,
+          7.8,
+          17.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          240.0,
+          408.2,
+          19.2,
+          9.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          262.8,
+          410.4,
+          23.4,
+          8.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          253.1,
+          382.4,
+          31.2,
+          26.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          240.6,
+          357.0,
+          25.5,
+          16.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          268.5,
+          358.5,
+          24.2,
+          13.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          260.9,
+          334.6,
+          28.3,
+          10.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          288.0,
+          306.5,
+          9.2,
+          17.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          241.3,
+          323.8,
+          20.0,
+          7.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          266.8,
+          324.0,
+          18.0,
+          8.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          254.0,
+          298.2,
+          30.8,
+          24.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          242.0,
+          97.8,
+          24.4,
+          13.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          269.2,
+          99.8,
+          24.6,
+          10.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          287.2,
+          131.2,
+          10.3,
+          17.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          249.8,
+          112.4,
+          21.1,
+          6.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          270.7,
+          111.2,
+          19.2,
+          10.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          242.8,
+          148.8,
+          18.0,
+          8.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          265.9,
+          149.8,
+          19.6,
+          6.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          260.4,
+          158.7,
+          28.3,
+          12.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          252.4,
+          211.0,
+          33.0,
+          22.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          431.4,
+          104.9,
+          28.2,
+          26.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          435.1,
+          192.2,
+          23.3,
+          26.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          432.4,
+          280.3,
+          25.8,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          447.7,
+          219.6,
+          19.9,
+          28.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          450.2,
+          132.8,
+          17.9,
+          29.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          438.1,
+          365.9,
+          10.2,
+          15.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          449.1,
+          366.0,
+          7.6,
+          16.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          456.8,
+          366.0,
+          11.5,
+          18.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          500.0,
+          271.0,
+          10.8,
+          17.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          502.8,
+          104.9,
+          7.6,
+          17.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          500.8,
+          135.7,
+          9.1,
+          19.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          498.7,
+          161.7,
+          11.1,
+          18.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          499.5,
+          213.9,
+          11.8,
+          17.6
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          475.1,
+          402.4,
+          36.9,
+          48.5
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "adc08dj5200rfevm-top_p2_108_110",
+    "board": "adc08dj5200rfevm-top",
+    "board_color": "red",
+    "crop_x": 108,
+    "crop_y": 110,
+    "crop_size": 512,
+    "n_components": 100,
+    "annotations": [
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          217.1,
+          86.3,
+          73.1,
+          70.3
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          214.3,
+          174.8,
+          75.8,
+          65.9
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          219.3,
+          263.8,
+          70.3,
+          68.7
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          221.5,
+          350.1,
+          68.7,
+          68.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          293.3,
+          94.9,
+          22.8,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          316.4,
+          95.3,
+          19.9,
+          26.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          317.9,
+          127.8,
+          20.2,
+          25.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          295.8,
+          124.9,
+          17.3,
+          28.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          295.8,
+          180.5,
+          19.9,
+          28.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          317.9,
+          182.3,
+          20.9,
+          25.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          296.6,
+          213.1,
+          16.6,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          315.3,
+          213.1,
+          24.9,
+          28.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          294.4,
+          265.1,
+          19.1,
+          32.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          316.1,
+          268.7,
+          23.8,
+          30.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          294.9,
+          302.6,
+          19.5,
+          28.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          314.5,
+          303.1,
+          24.8,
+          24.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          294.4,
+          352.4,
+          20.1,
+          33.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          315.7,
+          355.8,
+          19.2,
+          28.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          294.1,
+          387.2,
+          20.1,
+          29.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          315.7,
+          386.0,
+          23.9,
+          31.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          369.5,
+          298.7,
+          21.4,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          163.3,
+          174.3,
+          25.3,
+          11.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          190.6,
+          175.2,
+          23.0,
+          12.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          172.9,
+          188.3,
+          15.4,
+          6.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          191.0,
+          187.8,
+          16.7,
+          7.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          208.4,
+          206.8,
+          9.9,
+          18.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          181.1,
+          235.2,
+          28.2,
+          11.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          162.2,
+          223.4,
+          19.0,
+          9.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          186.0,
+          225.5,
+          18.7,
+          6.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          161.9,
+          261.6,
+          26.0,
+          14.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          189.2,
+          262.7,
+          27.3,
+          13.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          171.8,
+          276.5,
+          17.1,
+          7.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          191.2,
+          276.9,
+          17.1,
+          9.0
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          17.0,
+          127.2,
+          19.6,
+          37.9
+        ]
+      },
+      {
+        "category_id": 8,
+        "category_name": "TRANSISTOR",
+        "bbox": [
+          52.2,
+          130.2,
+          15.0,
+          15.6
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          78.3,
+          131.6,
+          22.5,
+          22.2
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          100.3,
+          189.4,
+          21.2,
+          9.1
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          100.7,
+          214.1,
+          22.0,
+          10.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          101.0,
+          130.1,
+          11.3,
+          20.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          112.8,
+          128.9,
+          14.4,
+          22.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          109.2,
+          267.9,
+          15.2,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          109.0,
+          280.7,
+          15.1,
+          7.1
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          83.1,
+          269.7,
+          24.8,
+          21.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          23.9,
+          273.9,
+          49.2,
+          25.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          9.0,
+          305.4,
+          54.4,
+          45.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          39.8,
+          134.8,
+          12.7,
+          20.4
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          100.6,
+          179.2,
+          21.1,
+          8.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          104.4,
+          204.1,
+          18.3,
+          8.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          97.1,
+          366.0,
+          16.9,
+          13.7
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          102.8,
+          389.0,
+          9.3,
+          12.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          99.3,
+          298.3,
+          11.3,
+          9.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          180.2,
+          408.8,
+          30.8,
+          12.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          208.6,
+          380.6,
+          7.8,
+          17.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          161.0,
+          397.2,
+          19.2,
+          9.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          183.8,
+          399.4,
+          23.4,
+          8.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          174.1,
+          371.4,
+          31.2,
+          26.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          161.6,
+          346.0,
+          25.5,
+          16.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          189.5,
+          347.5,
+          24.2,
+          13.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          181.9,
+          323.6,
+          28.3,
+          10.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          209.0,
+          295.5,
+          9.2,
+          17.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          162.3,
+          312.8,
+          20.0,
+          7.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          187.8,
+          313.0,
+          18.0,
+          8.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          175.0,
+          287.2,
+          30.8,
+          24.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          163.0,
+          86.8,
+          24.4,
+          13.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          190.2,
+          88.8,
+          24.6,
+          10.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          208.2,
+          120.2,
+          10.3,
+          17.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          170.8,
+          101.4,
+          21.1,
+          6.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          191.7,
+          100.2,
+          19.2,
+          10.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          163.8,
+          137.8,
+          18.0,
+          8.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          186.9,
+          138.8,
+          19.6,
+          6.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          181.4,
+          147.7,
+          28.3,
+          12.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          173.4,
+          200.0,
+          33.0,
+          22.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          352.4,
+          93.9,
+          28.2,
+          26.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          356.1,
+          181.2,
+          23.3,
+          26.2
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          353.4,
+          269.3,
+          25.8,
+          26.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          368.7,
+          208.6,
+          19.9,
+          28.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          371.2,
+          121.8,
+          17.9,
+          29.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          359.1,
+          354.9,
+          10.2,
+          15.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          370.1,
+          355.0,
+          7.6,
+          16.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          377.8,
+          355.0,
+          11.5,
+          18.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          441.0,
+          261.0,
+          10.1,
+          17.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          431.3,
+          260.2,
+          10.1,
+          18.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          421.0,
+          260.0,
+          10.8,
+          17.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          440.0,
+          93.7,
+          10.7,
+          19.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          423.8,
+          93.9,
+          7.6,
+          17.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          432.3,
+          93.9,
+          8.9,
+          21.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          421.8,
+          124.7,
+          9.1,
+          19.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          432.1,
+          124.9,
+          8.5,
+          19.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          441.4,
+          124.4,
+          7.6,
+          21.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          419.7,
+          150.7,
+          11.1,
+          18.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          440.6,
+          151.7,
+          9.5,
+          18.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          431.5,
+          150.3,
+          8.3,
+          18.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          420.5,
+          202.9,
+          11.8,
+          17.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          430.9,
+          202.7,
+          10.7,
+          19.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          442.2,
+          203.6,
+          9.5,
+          16.5
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          485.4,
+          163.3,
+          26.6,
+          49.6
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          494.6,
+          344.4,
+          16.3,
+          16.3
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          476.3,
+          345.6,
+          13.6,
+          18.7
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          459.6,
+          346.4,
+          15.8,
+          14.2
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          396.1,
+          391.4,
+          63.9,
+          48.5
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "adc3644evm-top_p0_389_115",
+    "board": "adc3644evm-top",
+    "board_color": "red",
+    "crop_x": 389,
+    "crop_y": 115,
+    "crop_size": 512,
+    "n_components": 24,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          387.7,
+          0,
+          85.7,
+          44.2
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          67.7,
+          0,
+          53.3,
+          36.0
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          417.5,
+          433.5,
+          56.9,
+          50.3
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          305.6,
+          36.7,
+          42.6,
+          16.7
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          308.4,
+          358.4,
+          14.9,
+          41.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          306.9,
+          75.1,
+          25.2,
+          55.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          311.8,
+          148.1,
+          31.6,
+          20.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          337.0,
+          67.7,
+          41.8,
+          17.3
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          314.4,
+          0.8,
+          57.8,
+          32.7
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          210.2,
+          158.2,
+          19.3,
+          17.5
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          36.2,
+          187.7,
+          28.1,
+          22.6
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          16.6,
+          183.6,
+          21.8,
+          20.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          0,
+          198.3,
+          19.2,
+          9.8
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          87.5,
+          229.5,
+          40.3,
+          40.7
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          0.3,
+          298.5,
+          19.4,
+          58.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          68.9,
+          217.9,
+          10.0,
+          22.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          45.8,
+          211.5,
+          8.9,
+          19.8
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          350.9,
+          370.8,
+          19.9,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          351.2,
+          381.4,
+          18.9,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          345.3,
+          392.5,
+          16.6,
+          7.6
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          378.3,
+          331.5,
+          9.4,
+          21.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          390.1,
+          330.7,
+          10.9,
+          22.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          233.6,
+          442.0,
+          22.1,
+          10.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          145.9,
+          191.2,
+          50.0,
+          101.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "adc3644evm-top_p1_461_176",
+    "board": "adc3644evm-top",
+    "board_color": "red",
+    "crop_x": 461,
+    "crop_y": 176,
+    "crop_size": 512,
+    "n_components": 16,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          50.1,
+          400.4,
+          84.5,
+          111.6
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          345.5,
+          372.5,
+          56.9,
+          50.3
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          236.4,
+          297.4,
+          14.9,
+          41.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          234.9,
+          14.1,
+          25.2,
+          55.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          239.8,
+          87.1,
+          31.6,
+          20.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          265.0,
+          6.7,
+          41.8,
+          17.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          138.2,
+          97.2,
+          19.3,
+          17.5
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          15.5,
+          168.5,
+          40.3,
+          40.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          0,
+          156.9,
+          6.9,
+          22.0
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          278.9,
+          309.8,
+          19.9,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          279.2,
+          320.4,
+          18.9,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          273.3,
+          331.5,
+          16.6,
+          7.6
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          306.3,
+          270.5,
+          9.4,
+          21.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          318.1,
+          269.7,
+          10.9,
+          22.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          161.6,
+          381.0,
+          22.1,
+          10.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          73.9,
+          130.2,
+          50.0,
+          101.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "adc3644evm-top_p2_557_57",
+    "board": "adc3644evm-top",
+    "board_color": "red",
+    "crop_x": 557,
+    "crop_y": 57,
+    "crop_size": 512,
+    "n_components": 15,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          219.7,
+          22.6,
+          85.7,
+          79.7
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          137.6,
+          94.7,
+          42.6,
+          16.7
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          140.4,
+          416.4,
+          14.9,
+          41.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          138.9,
+          133.1,
+          25.2,
+          55.3
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          143.8,
+          206.1,
+          31.6,
+          20.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          169.0,
+          125.7,
+          41.8,
+          17.3
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          146.4,
+          58.8,
+          57.8,
+          32.7
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          42.2,
+          216.2,
+          19.3,
+          17.5
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          182.9,
+          428.8,
+          19.9,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          183.2,
+          439.4,
+          18.9,
+          9.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          177.3,
+          450.5,
+          16.6,
+          7.6
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          210.3,
+          389.5,
+          9.4,
+          21.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          222.1,
+          388.7,
+          10.9,
+          22.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          65.6,
+          500.0,
+          22.1,
+          10.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          0,
+          249.2,
+          27.9,
+          101.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "drv8428pevm-top_p0_564_180",
+    "board": "drv8428pevm-top",
+    "board_color": "green",
+    "crop_x": 564,
+    "crop_y": 180,
+    "crop_size": 512,
+    "n_components": 20,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          187.5,
+          412.6,
+          119.4,
+          99.4
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          64.3,
+          0,
+          51.8,
+          435.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          239.2,
+          258.6,
+          169.8,
+          118.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          301.1,
+          204.2,
+          31.1,
+          18.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          297.2,
+          227.1,
+          37.6,
+          15.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          272.8,
+          135.9,
+          60.6,
+          57.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          299.6,
+          110.2,
+          34.0,
+          14.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          0.2,
+          338.4,
+          46.2,
+          22.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          6.8,
+          371.7,
+          35.2,
+          20.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          7.3,
+          286.5,
+          34.1,
+          18.7
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          6.5,
+          266.5,
+          35.3,
+          16.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          6.3,
+          247.1,
+          33.2,
+          16.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          6.9,
+          226.6,
+          32.2,
+          15.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          7.8,
+          208.3,
+          31.2,
+          13.4
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          7.9,
+          186.0,
+          33.4,
+          16.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          8.4,
+          167.4,
+          31.7,
+          14.1
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          6.7,
+          147.5,
+          33.8,
+          15.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          7.4,
+          106.6,
+          32.5,
+          17.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          8.4,
+          68.2,
+          31.3,
+          15.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          7.9,
+          47.4,
+          33.4,
+          15.6
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "drv8428pevm-top_p1_698_63",
+    "board": "drv8428pevm-top",
+    "board_color": "green",
+    "crop_x": 698,
+    "crop_y": 63,
+    "crop_size": 512,
+    "n_components": 7,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          354.6,
+          167.7,
+          97.9,
+          103.0
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          359.4,
+          305.9,
+          92.3,
+          102.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          105.2,
+          375.6,
+          169.8,
+          118.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          167.1,
+          321.2,
+          31.1,
+          18.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          163.2,
+          344.1,
+          37.6,
+          15.4
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          138.8,
+          252.9,
+          60.6,
+          57.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          165.6,
+          227.2,
+          34.0,
+          14.3
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "drv8428pevm-top_p2_166_204",
+    "board": "drv8428pevm-top",
+    "board_color": "green",
+    "crop_x": 166,
+    "crop_y": 204,
+    "crop_size": 512,
+    "n_components": 25,
+    "annotations": [
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          0,
+          176.5,
+          82.4,
+          242.3
+        ]
+      },
+      {
+        "category_id": 7,
+        "category_name": "SWITCH",
+        "bbox": [
+          0,
+          35.7,
+          120.1,
+          87.7
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          178.2,
+          75.2,
+          174.7,
+          173.1
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          246.2,
+          308.9,
+          38.6,
+          15.7
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          182.5,
+          310.3,
+          37.4,
+          15.9
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          186.9,
+          330.5,
+          33.9,
+          14.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          249.1,
+          277.7,
+          13.9,
+          23.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          265.5,
+          252.9,
+          29.6,
+          12.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          163.7,
+          196.1,
+          10.7,
+          23.4
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          116.2,
+          124.3,
+          12.1,
+          23.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          151.6,
+          22.1,
+          27.8,
+          10.5
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "CONNECTOR",
+        "bbox": [
+          462.3,
+          0,
+          49.7,
+          411.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          398.2,
+          314.4,
+          46.2,
+          22.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          404.8,
+          347.7,
+          35.2,
+          20.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          405.3,
+          262.5,
+          34.1,
+          18.7
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          404.5,
+          242.5,
+          35.3,
+          16.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          404.3,
+          223.1,
+          33.2,
+          16.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          404.9,
+          202.6,
+          32.2,
+          15.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          405.8,
+          184.3,
+          31.2,
+          13.4
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          405.9,
+          162.0,
+          33.4,
+          16.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          406.4,
+          143.4,
+          31.7,
+          14.1
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          404.7,
+          123.5,
+          33.8,
+          15.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          405.4,
+          82.6,
+          32.5,
+          17.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          406.4,
+          44.2,
+          31.3,
+          15.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          405.9,
+          23.4,
+          33.4,
+          15.6
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "lm5017evalnopb-top_p0_551_175",
+    "board": "lm5017evalnopb-top",
+    "board_color": "green",
+    "crop_x": 551,
+    "crop_y": 175,
+    "crop_size": 512,
+    "n_components": 10,
+    "annotations": [
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          323.4,
+          77.9,
+          64.1,
+          31.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          373.4,
+          132.5,
+          27.7,
+          53.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          364.9,
+          208.4,
+          44.0,
+          67.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          5.6,
+          118.4,
+          18.2,
+          41.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          5.8,
+          173.5,
+          28.6,
+          53.3
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          51.2,
+          165.0,
+          67.4,
+          27.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          129.3,
+          146.0,
+          41.3,
+          18.9
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          37.1,
+          262.7,
+          25.7,
+          52.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          178.9,
+          178.4,
+          16.4,
+          42.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          210.6,
+          147.4,
+          41.5,
+          15.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "lm5017evalnopb-top_p1_316_170",
+    "board": "lm5017evalnopb-top",
+    "board_color": "green",
+    "crop_x": 316,
+    "crop_y": 170,
+    "crop_size": 512,
+    "n_components": 11,
+    "annotations": [
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          104.8,
+          135.9,
+          108.4,
+          75.7
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          14.4,
+          183.2,
+          51.7,
+          28.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          69.4,
+          117.4,
+          28.8,
+          54.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          240.6,
+          123.4,
+          18.2,
+          41.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          240.8,
+          178.5,
+          28.6,
+          53.3
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          286.2,
+          170.0,
+          67.4,
+          27.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          364.3,
+          151.0,
+          41.3,
+          18.9
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          201.5,
+          269.1,
+          53.6,
+          27.7
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          272.1,
+          267.7,
+          25.7,
+          52.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          413.9,
+          183.4,
+          16.4,
+          42.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          445.6,
+          152.4,
+          41.5,
+          15.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "lm5017evalnopb-top_p2_582_77",
+    "board": "lm5017evalnopb-top",
+    "board_color": "green",
+    "crop_x": 582,
+    "crop_y": 77,
+    "crop_size": 512,
+    "n_components": 9,
+    "annotations": [
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          83.7,
+          1.8,
+          191.8,
+          189.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          292.4,
+          175.9,
+          64.1,
+          31.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          342.4,
+          230.5,
+          27.7,
+          53.1
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          333.9,
+          306.4,
+          44.0,
+          67.9
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          20.2,
+          263.0,
+          67.4,
+          27.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          98.3,
+          244.0,
+          41.3,
+          18.9
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          6.1,
+          360.7,
+          25.7,
+          52.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          147.9,
+          276.4,
+          16.4,
+          42.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          179.6,
+          245.4,
+          41.5,
+          15.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "pcm1821evm-top_p0_285_17",
+    "board": "pcm1821evm-top",
+    "board_color": "blue",
+    "crop_x": 285,
+    "crop_y": 17,
+    "crop_size": 512,
+    "n_components": 8,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          225.1,
+          475.3,
+          51.6,
+          36.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          403.7,
+          480.1,
+          54.5,
+          31.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          264.2,
+          312.9,
+          45.9,
+          76.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          311.1,
+          314.8,
+          43.0,
+          31.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          365.5,
+          336.8,
+          29.6,
+          26.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          296.7,
+          205.0,
+          85.0,
+          23.9
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          233.7,
+          232.7,
+          76.4,
+          31.5
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          371.2,
+          236.5,
+          47.8,
+          17.2
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "pcm1821evm-top_p1_267_45",
+    "board": "pcm1821evm-top",
+    "board_color": "blue",
+    "crop_x": 267,
+    "crop_y": 45,
+    "crop_size": 512,
+    "n_components": 8,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          243.1,
+          447.3,
+          51.6,
+          51.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          421.7,
+          452.1,
+          54.5,
+          50.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          282.2,
+          284.9,
+          45.9,
+          76.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          329.1,
+          286.8,
+          43.0,
+          31.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          383.5,
+          308.8,
+          29.6,
+          26.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          314.7,
+          177.0,
+          85.0,
+          23.9
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          251.7,
+          204.7,
+          76.4,
+          31.5
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          389.2,
+          208.5,
+          47.8,
+          17.2
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "pcm1821evm-top_p2_446_155",
+    "board": "pcm1821evm-top",
+    "board_color": "blue",
+    "crop_x": 446,
+    "crop_y": 155,
+    "crop_size": 512,
+    "n_components": 10,
+    "annotations": [
+      {
+        "category_id": 7,
+        "category_name": "SWITCH",
+        "bbox": [
+          0,
+          443.3,
+          170.1,
+          68.7
+        ]
+      },
+      {
+        "category_id": 7,
+        "category_name": "SWITCH",
+        "bbox": [
+          188.3,
+          433.8,
+          129.0,
+          78.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          64.1,
+          337.3,
+          51.6,
+          51.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          242.7,
+          342.1,
+          54.5,
+          50.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          103.2,
+          174.9,
+          45.9,
+          76.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          150.1,
+          176.8,
+          43.0,
+          31.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          204.5,
+          198.8,
+          29.6,
+          26.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          135.7,
+          67.0,
+          85.0,
+          23.9
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          72.7,
+          94.7,
+          76.4,
+          31.5
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          210.2,
+          98.5,
+          47.8,
+          17.2
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tmuxrtj-rrqevm-top_p0_299_178",
+    "board": "tmuxrtj-rrqevm-top",
+    "board_color": "green",
+    "crop_x": 299,
+    "crop_y": 178,
+    "crop_size": 512,
+    "n_components": 5,
+    "annotations": [
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          233.9,
+          392.7,
+          12.1,
+          39.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          282.8,
+          390.9,
+          13.9,
+          44.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          334.0,
+          389.6,
+          18.0,
+          38.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          392.8,
+          394.1,
+          10.8,
+          41.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          436.8,
+          390.9,
+          21.5,
+          41.8
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tmuxrtj-rrqevm-top_p1_291_120",
+    "board": "tmuxrtj-rrqevm-top",
+    "board_color": "green",
+    "crop_x": 291,
+    "crop_y": 120,
+    "crop_size": 512,
+    "n_components": 10,
+    "annotations": [
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          232.9,
+          0,
+          23.8,
+          28.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          292.1,
+          0,
+          14.4,
+          18.9
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          349.1,
+          0,
+          8.5,
+          29.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          395.4,
+          0,
+          15.3,
+          26.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          446.6,
+          0,
+          15.3,
+          23.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          241.9,
+          450.7,
+          12.1,
+          39.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          290.8,
+          448.9,
+          13.9,
+          44.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          342.0,
+          447.6,
+          18.0,
+          38.2
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          400.8,
+          452.1,
+          10.8,
+          41.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          444.8,
+          448.9,
+          21.5,
+          41.8
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tmuxrtj-rrqevm-top_p2_503_18",
+    "board": "tmuxrtj-rrqevm-top",
+    "board_color": "green",
+    "crop_x": 503,
+    "crop_y": 18,
+    "crop_size": 512,
+    "n_components": 16,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          307.7,
+          81.8,
+          21.5,
+          41.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          339.6,
+          88.5,
+          20.6,
+          30.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          377.8,
+          88.1,
+          26.9,
+          40.0
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          314.5,
+          137.9,
+          29.2,
+          41.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          349.0,
+          137.0,
+          23.8,
+          40.8
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          385.4,
+          138.8,
+          31.4,
+          47.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          20.9,
+          87.2,
+          23.8,
+          43.1
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          80.1,
+          85.9,
+          14.4,
+          35.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          137.1,
+          84.1,
+          8.5,
+          47.1
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          183.4,
+          87.7,
+          15.3,
+          40.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          234.6,
+          85.9,
+          15.3,
+          40.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          349.9,
+          438.3,
+          40.0,
+          17.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          351.3,
+          390.7,
+          25.1,
+          13.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          349.0,
+          332.3,
+          34.1,
+          13.0
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          349.5,
+          279.3,
+          32.3,
+          19.8
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          353.1,
+          234.4,
+          39.5,
+          20.2
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tps2372-3evm-757-top_p0_670_82",
+    "board": "tps2372-3evm-757-top",
+    "board_color": "green",
+    "crop_x": 670,
+    "crop_y": 82,
+    "crop_size": 512,
+    "n_components": 7,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          54.8,
+          224.2,
+          145.3,
+          150.8
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          19.6,
+          150.1,
+          25.3,
+          20.5
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          23.9,
+          435.5,
+          21.2,
+          57.3
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          62.1,
+          443.2,
+          8.8,
+          26.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          82.2,
+          454.6,
+          31.0,
+          17.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          168.4,
+          430.3,
+          17.5,
+          30.5
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          100.8,
+          395.2,
+          55.2,
+          50.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tps2372-3evm-757-top_p1_674_21",
+    "board": "tps2372-3evm-757-top",
+    "board_color": "green",
+    "crop_x": 674,
+    "crop_y": 21,
+    "crop_size": 512,
+    "n_components": 4,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          50.8,
+          285.2,
+          145.3,
+          150.8
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          15.6,
+          211.1,
+          25.3,
+          20.5
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          164.4,
+          491.3,
+          17.5,
+          20.7
+        ]
+      },
+      {
+        "category_id": 9,
+        "category_name": "IC",
+        "bbox": [
+          96.8,
+          456.2,
+          55.2,
+          50.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tps2372-3evm-757-top_p2_95_192",
+    "board": "tps2372-3evm-757-top",
+    "board_color": "green",
+    "crop_x": 95,
+    "crop_y": 192,
+    "crop_size": 512,
+    "n_components": 13,
+    "annotations": [
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          242.7,
+          285.4,
+          25.9,
+          41.6
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          282.8,
+          268.1,
+          47.9,
+          85.6
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          349.5,
+          289.3,
+          50.2,
+          62.8
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          433.5,
+          278.3,
+          27.5,
+          48.7
+        ]
+      },
+      {
+        "category_id": 8,
+        "category_name": "TRANSISTOR",
+        "bbox": [
+          351.1,
+          0,
+          58.1,
+          68.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          496.2,
+          9.3,
+          15.8,
+          35.5
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          443.7,
+          0.5,
+          31.4,
+          27.3
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          435.7,
+          206.7,
+          76.3,
+          43.4
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          489.9,
+          106.1,
+          22.1,
+          20.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          443.0,
+          120,
+          26.9,
+          13.4
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          439.9,
+          143.2,
+          11.4,
+          37.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          417.7,
+          123.1,
+          12.9,
+          26.9
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          384.1,
+          121.6,
+          25.8,
+          16.5
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tps2554evm-010-top_p0_644_147",
+    "board": "tps2554evm-010-top",
+    "board_color": "green",
+    "crop_x": 644,
+    "crop_y": 147,
+    "crop_size": 512,
+    "n_components": 9,
+    "annotations": [
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          31,
+          240.4,
+          21.8,
+          49.9
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          56.3,
+          239.7,
+          25.3,
+          50.6
+        ]
+      },
+      {
+        "category_id": 1,
+        "category_name": "RESISTOR",
+        "bbox": [
+          21.2,
+          288.2,
+          28.8,
+          23.9
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          163.2,
+          347.3,
+          19.0,
+          16.9
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          163.2,
+          305.8,
+          19.0,
+          19.0
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          76,
+          326.9,
+          19.0,
+          16.9
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          199.8,
+          70.3,
+          64.0,
+          61.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          88.0,
+          233.4,
+          79.5,
+          147.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          204.7,
+          374.0,
+          58.4,
+          59.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tps2554evm-010-top_p1_768_197",
+    "board": "tps2554evm-010-top",
+    "board_color": "green",
+    "crop_x": 768,
+    "crop_y": 197,
+    "crop_size": 512,
+    "n_components": 5,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          39.2,
+          297.3,
+          19.0,
+          16.9
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          39.2,
+          255.8,
+          19.0,
+          19.0
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          75.8,
+          20.3,
+          64.0,
+          61.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          0,
+          183.4,
+          43.4,
+          147.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          80.7,
+          324.0,
+          58.4,
+          59.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tps2554evm-010-top_p2_712_132",
+    "board": "tps2554evm-010-top",
+    "board_color": "green",
+    "crop_x": 712,
+    "crop_y": 132,
+    "crop_size": 512,
+    "n_components": 7,
+    "annotations": [
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          0,
+          254.7,
+          13.6,
+          50.6
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          95.2,
+          362.3,
+          19.0,
+          16.9
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          95.2,
+          320.8,
+          19.0,
+          19.0
+        ]
+      },
+      {
+        "category_id": 6,
+        "category_name": "LED",
+        "bbox": [
+          8,
+          341.9,
+          19.0,
+          16.9
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "INDUCTOR",
+        "bbox": [
+          131.8,
+          85.3,
+          64.0,
+          61.2
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          20.0,
+          248.4,
+          79.5,
+          147.7
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          136.7,
+          389.0,
+          58.4,
+          59.1
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tpul1x1000-evm-top_p0_278_85",
+    "board": "tpul1x1000-evm-top",
+    "board_color": "green",
+    "crop_x": 278,
+    "crop_y": 85,
+    "crop_size": 512,
+    "n_components": 3,
+    "annotations": [
+      {
+        "category_id": 7,
+        "category_name": "SWITCH",
+        "bbox": [
+          349.0,
+          157.2,
+          139.3,
+          70.5
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          173.6,
+          221.1,
+          87.9,
+          97.2
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          206.9,
+          381.1,
+          44.8,
+          22.4
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tpul1x1000-evm-top_p1_141_38",
+    "board": "tpul1x1000-evm-top",
+    "board_color": "green",
+    "crop_x": 141,
+    "crop_y": 38,
+    "crop_size": 512,
+    "n_components": 2,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          310.6,
+          268.1,
+          87.9,
+          97.2
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          343.9,
+          428.1,
+          44.8,
+          22.4
+        ]
+      }
+    ]
+  },
+  {
+    "patch_id": "tpul1x1000-evm-top_p2_65_106",
+    "board": "tpul1x1000-evm-top",
+    "board_color": "green",
+    "crop_x": 65,
+    "crop_y": 106,
+    "crop_size": 512,
+    "n_components": 2,
+    "annotations": [
+      {
+        "category_id": 2,
+        "category_name": "CAPACITOR",
+        "bbox": [
+          386.6,
+          200.1,
+          87.9,
+          97.2
+        ]
+      },
+      {
+        "category_id": 5,
+        "category_name": "DIODE",
+        "bbox": [
+          419.9,
+          360.1,
+          44.8,
+          22.4
+        ]
+      }
+    ]
+  }
+]

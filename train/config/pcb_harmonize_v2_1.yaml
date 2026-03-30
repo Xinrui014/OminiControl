@@ -10,15 +10,12 @@ train:
   dataloader_workers: 4
   save_interval: 1000
   sample_interval: 1000
-  max_steps: 8000                    # Shorter run — fine-tuning from 12k base
+  max_steps: 20000                   # From scratch with zoom crops + weighted loss
   gradient_checkpointing: true
   save_path: "runs"
   gradient_clip_val: 0.5
 
   condition_type: "pcb_harmonize"
-
-  # Resume from v2 base checkpoint
-  lora_path: "/home/xinrui/projects/OminiControl/runs/20260327-022340/ckpt/12000"
 
   dataset:
     # v2 data paths
@@ -59,9 +56,11 @@ train:
     target_modules: "(.*x_embedder|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_v|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_out\\.0|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff\\.net\\.2|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.proj_mlp|.*single_transformer_blocks\\.[0-9]+\\.proj_out|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q|.*single_transformer_blocks\\.[0-9]+\\.attn.to_v|.*single_transformer_blocks\\.[0-9]+\\.attn.to_out)"
 
   optimizer:
-    type: "AdamW"
+    type: "Prodigy"
     params:
-      lr: 1.0e-5                     # Lower LR for fine-tuning
+      lr: 1
+      use_bias_correction: true
+      safeguard_warmup: true
       weight_decay: 0.01
 
   wandb:

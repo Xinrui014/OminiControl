@@ -11,16 +11,17 @@ ckpts/
 wandb/
 omini/train_flux/runs/
 omini/train_flux/wandb/
+*.log
+
+# Output directories
 pipeline_output/
+pipeline_v2_output/
+pipeline_v2_output_*/
+patch_v2_output/
 inference_pcb_output/
 tiled_output/
-*.log
+compare_6k_vs_12k/
 
 # Test artifacts
 test_composite_1280x720.png
 omini/train_flux/Dataloader/test.png
-pipeline_v2_output/
-patch_v2_output/
-infer_v2.log
-patch_v2.log
-test_composite_1280x720.png

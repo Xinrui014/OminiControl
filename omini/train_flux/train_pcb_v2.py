@@ -27,10 +27,7 @@ from torch.utils.data import Dataset
 from .trainer import OminiModel, get_config, train
 from ..pipeline.flux_omini import Condition, generate
 
-# Import from our component bank module (placed in OminiControl root)
-import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
-from component_bank_v2 import ComponentBankV2, get_annotations_in_crop, CAT_ID_TO_NAME
+from lib.component_bank_v2 import ComponentBankV2, get_annotations_in_crop, CAT_ID_TO_NAME
 
 
 # ---------------------------------------------------------------------------

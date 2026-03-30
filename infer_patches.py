@@ -18,11 +18,9 @@ import numpy as np
 import torch
 from PIL import Image, ImageDraw
 
-OMINI_ROOT = "/home/xinrui/projects/OminiControl"
-sys.path.insert(0, OMINI_ROOT)
 from omini.pipeline.flux_omini import Condition, generate, seed_everything
-from component_bank_v2 import ComponentBankV2, CAT_ID_TO_NAME, get_annotations_in_crop
-from tiled_harmonize import load_model
+from lib.component_bank_v2 import ComponentBankV2, CAT_ID_TO_NAME, get_annotations_in_crop
+from lib.tiled_harmonize import load_model
 
 BOARD_W, BOARD_H = 1280, 720
 CROP_SIZE = 512
@@ -89,7 +87,7 @@ def main():
     parser.add_argument("--image_dir", default="/home/xinrui/projects/data/ti_pcb/images_top")
     parser.add_argument("--train_jsonl", default="/home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/train.jsonl")
     parser.add_argument("--test_jsonl", default="/home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/test.jsonl")
-    parser.add_argument("--omini_ckpt", default="/home/xinrui/projects/OminiControl/runs/20260327-022340/ckpt/12000")
+    parser.add_argument("--omini_ckpt", default="/home/xinrui/projects/OminiControl/runs/v2_pcb_harmonize/ckpt/12000")
     parser.add_argument("--output_dir", default="./patch_v2_output")
     parser.add_argument("--num_boards", type=int, default=5, help="Number of test boards")
     parser.add_argument("--patches_per_board", type=int, default=2, help="Random crops per board")
