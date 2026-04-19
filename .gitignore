@@ -25,3 +25,8 @@ compare_6k_vs_12k/
 # Test artifacts
 test_composite_1280x720.png
 omini/train_flux/Dataloader/test.png
+
+# Eval binary outputs
+eval_metrics/real_crops/
+eval_metrics/real_crops_1024/
+eval_metrics/gallery_yolo/

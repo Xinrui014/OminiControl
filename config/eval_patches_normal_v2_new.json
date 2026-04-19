@@ -78,7 +78,8 @@
           12.9
         ]
       }
-    ]
+    ],
+    "resolution_class": "R5"
   },
   {
     "patch_id": "3220dfp-dglevm-top_p1_736_129",
@@ -169,7 +170,8 @@
           12.9
         ]
       }
-    ]
+    ],
+    "resolution_class": "R5"
   },
   {
     "patch_id": "3220dfp-dglevm-top_p2_652_70",
@@ -260,7 +262,8 @@
           12.9
         ]
       }
-    ]
+    ],
+    "resolution_class": "R5"
   },
   {
     "patch_id": "adc08dj5200rfevm-top_p0_555_119",
@@ -531,7 +534,8 @@
           53.5
         ]
       }
-    ]
+    ],
+    "resolution_class": "R1"
   },
   {
     "patch_id": "adc08dj5200rfevm-top_p1_29_99",
@@ -1432,7 +1436,8 @@
           48.5
         ]
       }
-    ]
+    ],
+    "resolution_class": "R1"
   },
   {
     "patch_id": "adc08dj5200rfevm-top_p2_108_110",
@@ -2443,7 +2448,8 @@
           48.5
         ]
       }
-    ]
+    ],
+    "resolution_class": "R1"
   },
   {
     "patch_id": "adc3644evm-top_p0_389_115",
@@ -2694,7 +2700,8 @@
           101.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R1"
   },
   {
     "patch_id": "adc3644evm-top_p1_461_176",
@@ -2865,7 +2872,8 @@
           101.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R1"
   },
   {
     "patch_id": "adc3644evm-top_p2_557_57",
@@ -3026,7 +3034,8 @@
           101.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R1"
   },
   {
     "patch_id": "drv8428pevm-top_p0_564_180",
@@ -3237,7 +3246,8 @@
           15.6
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "drv8428pevm-top_p1_698_63",
@@ -3318,7 +3328,8 @@
           14.3
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "drv8428pevm-top_p2_166_204",
@@ -3579,7 +3590,8 @@
           15.6
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "lm5017evalnopb-top_p0_551_175",
@@ -3690,7 +3702,8 @@
           15.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R7"
   },
   {
     "patch_id": "lm5017evalnopb-top_p1_316_170",
@@ -3811,7 +3824,8 @@
           15.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R7"
   },
   {
     "patch_id": "lm5017evalnopb-top_p2_582_77",
@@ -3912,7 +3926,8 @@
           15.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R7"
   },
   {
     "patch_id": "pcm1821evm-top_p0_285_17",
@@ -4003,7 +4018,8 @@
           17.2
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "pcm1821evm-top_p1_267_45",
@@ -4094,7 +4110,8 @@
           17.2
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "pcm1821evm-top_p2_446_155",
@@ -4205,7 +4222,8 @@
           17.2
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "tmuxrtj-rrqevm-top_p0_299_178",
@@ -4266,7 +4284,8 @@
           41.8
         ]
       }
-    ]
+    ],
+    "resolution_class": "R3"
   },
   {
     "patch_id": "tmuxrtj-rrqevm-top_p1_291_120",
@@ -4377,7 +4396,8 @@
           41.8
         ]
       }
-    ]
+    ],
+    "resolution_class": "R3"
   },
   {
     "patch_id": "tmuxrtj-rrqevm-top_p2_503_18",
@@ -4548,7 +4568,8 @@
           20.2
         ]
       }
-    ]
+    ],
+    "resolution_class": "R3"
   },
   {
     "patch_id": "tps2372-3evm-757-top_p0_670_82",
@@ -4629,7 +4650,8 @@
           50.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "tps2372-3evm-757-top_p1_674_21",
@@ -4680,7 +4702,8 @@
           50.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "tps2372-3evm-757-top_p2_95_192",
@@ -4821,7 +4844,8 @@
           16.5
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "tps2554evm-010-top_p0_644_147",
@@ -4922,7 +4946,8 @@
           59.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R5"
   },
   {
     "patch_id": "tps2554evm-010-top_p1_768_197",
@@ -4983,7 +5008,8 @@
           59.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R5"
   },
   {
     "patch_id": "tps2554evm-010-top_p2_712_132",
@@ -5064,7 +5090,8 @@
           59.1
         ]
       }
-    ]
+    ],
+    "resolution_class": "R5"
   },
   {
     "patch_id": "tpul1x1000-evm-top_p0_278_85",
@@ -5105,7 +5132,8 @@
           22.4
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "tpul1x1000-evm-top_p1_141_38",
@@ -5136,7 +5164,8 @@
           22.4
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   },
   {
     "patch_id": "tpul1x1000-evm-top_p2_65_106",
@@ -5167,6 +5196,7 @@
           22.4
         ]
       }
-    ]
+    ],
+    "resolution_class": "R4"
   }
 ]

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>PCB Harmonization Comparison</title>
+<style>
+body{background:#1a1a2e;color:#eee;font-family:sans-serif;max-width:1600px;margin:auto;padding:20px}
+h1{color:#4ECDC4;text-align:center}
+h2{color:#4ECDC4;margin-top:30px}
+.sample{background:#16213e;border-radius:12px;padding:16px;margin:20px auto}
+h3{color:#FF6B6B;margin:0 0 4px}
+.meta{color:#4ECDC4;font-size:13px;margin:4px 0}
+.labels{color:#aaa;font-size:12px;margin:2px 0 8px}
+.model{margin:8px 0}
+.model-name{color:#FFD93D;font-size:14px;font-weight:bold;margin:4px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0}
+th,td{border:1px solid #333;padding:8px;text-align:center;font-size:13px}
+th{background:#16213e;color:#4ECDC4}
+td{background:#0f1a2e}
+</style></head><body>
+<h1>PCB Harmonization — Model Comparison</h1>
+<p style="text-align:center;color:#aaa">50 sampled patches across 2 models</p>
+
+<h2>Metrics Summary</h2>
+<table>
+<tr><th>Model</th><th>FID↓</th><th>KID↓</th><th>Mean IoU↑</th><th>Class Acc↑</th><th>Precision↑</th><th>Recall↑</th><th>FP/img↓</th><th>Halluc/img↓</th><th>AP@0.5↑</th></tr>
+
+        <tr>
+          <td>v3_newdata ckpt14k (512-trained)</td>
+          <td>37.5016</td>
+          <td>0.022251</td>
+          <td>0.7908</td>
+          <td>0.7804</td>
+          <td>0.8167</td>
+          <td>0.8986</td>
+          <td>5.3248</td>
+          <td>3.4456</td>
+          <td>0.3031</td>
+        </tr>
+        <tr>
+          <td>v3.1_1024 ckpt6k (1024-trained)</td>
+          <td>33.4963</td>
+          <td>0.018624</td>
+          <td>0.7947</td>
+          <td>0.7535</td>
+          <td>0.7045</td>
+          <td>0.89</td>
+          <td>9.8536</td>
+          <td>7.984</td>
+          <td>0.2533</td>
+        </tr>
+</table>
+
+<h2>Visual Comparison</h2>
+
+        <div class="sample">
+          <h3>tps65136evm-265-top_p2_768_0</h3>
+          <p class="meta">Board: tps65136evm-265-top | Color: green | Components: 2</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps65136evm-265-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps65136evm-265-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>boost-drv8848-top_p2_768_0</h3>
+          <p class="meta">Board: boost-drv8848-top | Color: green | Components: 2</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/boost-drv8848-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/boost-drv8848-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc121c021evm-top_p3_0_208</h3>
+          <p class="meta">Board: adc121c021evm-top | Color: green | Components: 4</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc121c021evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc121c021evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tusb3410uartpdk-top_p3_0_208</h3>
+          <p class="meta">Board: tusb3410uartpdk-top | Color: green | Components: 2</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tusb3410uartpdk-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tusb3410uartpdk-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>lm3475eval-top_p1_768_0</h3>
+          <p class="meta">Board: lm3475eval-top | Color: green | Components: 5</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/lm3475eval-top_p1_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/lm3475eval-top_p1_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>lm2734x-eval-top_p2_768_0</h3>
+          <p class="meta">Board: lm2734x-eval-top | Color: green | Components: 2</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/lm2734x-eval-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/lm2734x-eval-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>lm25010eval-top_p4_384_208</h3>
+          <p class="meta">Board: lm25010eval-top | Color: green | Components: 4</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/lm25010eval-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/lm25010eval-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>bq25186evm-top_p2_768_0</h3>
+          <p class="meta">Board: bq25186evm-top | Color: green | Components: 3</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/bq25186evm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/bq25186evm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>ts3usb221aevm-top_p1_384_0</h3>
+          <p class="meta">Board: ts3usb221aevm-top | Color: green | Components: 4</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/ts3usb221aevm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/ts3usb221aevm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>amc1350evm-top_p3_0_208</h3>
+          <p class="meta">Board: amc1350evm-top | Color: green | Components: 7</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/amc1350evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/amc1350evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps7h2201evm-cval-top_p3_0_208</h3>
+          <p class="meta">Board: tps7h2201evm-cval-top | Color: green | Components: 2</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps7h2201evm-cval-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps7h2201evm-cval-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tusb3410uartpdk-top_p2_768_0</h3>
+          <p class="meta">Board: tusb3410uartpdk-top | Color: green | Components: 9</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tusb3410uartpdk-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tusb3410uartpdk-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps562203evm-top_p0_0_0</h3>
+          <p class="meta">Board: tps562203evm-top | Color: green | Components: 3</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps562203evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps562203evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>ads8412evm-top_p0_0_0</h3>
+          <p class="meta">Board: ads8412evm-top | Color: green | Components: 6</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/ads8412evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/ads8412evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps62290evm-279-top_p1_384_0</h3>
+          <p class="meta">Board: tps62290evm-279-top | Color: green | Components: 9</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps62290evm-279-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps62290evm-279-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>ths6222rhfevm-top_p2_768_0</h3>
+          <p class="meta">Board: ths6222rhfevm-top | Color: green | Components: 7</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/ths6222rhfevm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/ths6222rhfevm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc3120q1evm-pdk-top_p2_768_0</h3>
+          <p class="meta">Board: adc3120q1evm-pdk-top | Color: green | Components: 7</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc3120q1evm-pdk-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc3120q1evm-pdk-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc3120evm-pdk-top_p4_384_208</h3>
+          <p class="meta">Board: adc3120evm-pdk-top | Color: green | Components: 36</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc3120evm-pdk-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc3120evm-pdk-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>ads112c04evm-top_p5_768_208</h3>
+          <p class="meta">Board: ads112c04evm-top | Color: green | Components: 36</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/ads112c04evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/ads112c04evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>drv8932pevm-top_p4_384_208</h3>
+          <p class="meta">Board: drv8932pevm-top | Color: green | Components: 24</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/drv8932pevm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/drv8932pevm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>ek-tm4c129exl-top_p3_0_208</h3>
+          <p class="meta">Board: ek-tm4c129exl-top | Color: green | Components: 42</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/ek-tm4c129exl-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/ek-tm4c129exl-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tusb320evm-top_p5_768_208</h3>
+          <p class="meta">Board: tusb320evm-top | Color: green | Components: 22</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tusb320evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tusb320evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc16dx370evm-top_p0_0_0</h3>
+          <p class="meta">Board: adc16dx370evm-top | Color: green | Components: 28</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc16dx370evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc16dx370evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>drv3901-q1evm-top_p3_0_208</h3>
+          <p class="meta">Board: drv3901-q1evm-top | Color: green | Components: 33</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/drv3901-q1evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/drv3901-q1evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps2554evm-010-top_p1_384_0</h3>
+          <p class="meta">Board: tps2554evm-010-top | Color: green | Components: 13</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps2554evm-010-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps2554evm-010-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>ds90ub926qsevbnopb-top_p4_384_208</h3>
+          <p class="meta">Board: ds90ub926qsevbnopb-top | Color: green | Components: 25</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/ds90ub926qsevbnopb-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/ds90ub926qsevbnopb-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps543b22evm-top_p5_768_208</h3>
+          <p class="meta">Board: tps543b22evm-top | Color: green | Components: 27</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps543b22evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps543b22evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>lm5152evm-bst-top_p3_0_208</h3>
+          <p class="meta">Board: lm5152evm-bst-top | Color: green | Components: 16</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/lm5152evm-bst-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/lm5152evm-bst-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc08dj3200evm-top_p2_768_0</h3>
+          <p class="meta">Board: adc08dj3200evm-top | Color: green | Components: 41</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc08dj3200evm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc08dj3200evm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>boostxl-cc1120-90-top_p2_768_0</h3>
+          <p class="meta">Board: boostxl-cc1120-90-top | Color: green | Components: 15</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/boostxl-cc1120-90-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/boostxl-cc1120-90-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps25831q1evm-062-top_p4_384_208</h3>
+          <p class="meta">Board: tps25831q1evm-062-top | Color: green | Components: 41</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps25831q1evm-062-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps25831q1evm-062-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tas2781evm-top_p0_0_0</h3>
+          <p class="meta">Board: tas2781evm-top | Color: green | Components: 23</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tas2781evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tas2781evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>amc7932evm-top_p1_384_0</h3>
+          <p class="meta">Board: amc7932evm-top | Color: green | Components: 40</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/amc7932evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/amc7932evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>drv8874evm-top_p1_384_0</h3>
+          <p class="meta">Board: drv8874evm-top | Color: green | Components: 22</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/drv8874evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/drv8874evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>ds90uh984-q1mevm-top_p3_0_208</h3>
+          <p class="meta">Board: ds90uh984-q1mevm-top | Color: green | Components: 54</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/ds90uh984-q1mevm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/ds90uh984-q1mevm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc12qj1600evm-top_p1_384_0</h3>
+          <p class="meta">Board: adc12qj1600evm-top | Color: green | Components: 72</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc12qj1600evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc12qj1600evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc12j4000evm-top_p2_768_0</h3>
+          <p class="meta">Board: adc12j4000evm-top | Color: green | Components: 76</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc12j4000evm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc12j4000evm-top_p2_768_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>launchxl-cc13-90eu-top_p1_384_0</h3>
+          <p class="meta">Board: launchxl-cc13-90eu-top | Color: red | Components: 56</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/launchxl-cc13-90eu-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/launchxl-cc13-90eu-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc12j4000evm-top_p4_384_208</h3>
+          <p class="meta">Board: adc12j4000evm-top | Color: green | Components: 148</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc12j4000evm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc12j4000evm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>j7expe01evm-som-front_p1_384_0</h3>
+          <p class="meta">Board: j7expe01evm-som-front | Color: green | Components: 241</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/j7expe01evm-som-front_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/j7expe01evm-som-front_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>j784s4xg01evm-top_p0_0_0</h3>
+          <p class="meta">Board: j784s4xg01evm-top | Color: green | Components: 81</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/j784s4xg01evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/j784s4xg01evm-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>bq25756eevm-top_p4_384_208</h3>
+          <p class="meta">Board: bq25756eevm-top | Color: green | Components: 75</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/bq25756eevm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/bq25756eevm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc12dj3200evmcval-top_p0_0_0</h3>
+          <p class="meta">Board: adc12dj3200evmcval-top | Color: green | Components: 80</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc12dj3200evmcval-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc12dj3200evmcval-top_p0_0_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tdp158rsbevm-top_p1_384_0</h3>
+          <p class="meta">Board: tdp158rsbevm-top | Color: green | Components: 67</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tdp158rsbevm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tdp158rsbevm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps51375evm-top_p4_384_208</h3>
+          <p class="meta">Board: tps51375evm-top | Color: green | Components: 61</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps51375evm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps51375evm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc32rf54evm-top_p1_384_0</h3>
+          <p class="meta">Board: adc32rf54evm-top | Color: green | Components: 62</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc32rf54evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc32rf54evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>j7expe01evm-top_p5_768_208</h3>
+          <p class="meta">Board: j7expe01evm-top | Color: green | Components: 109</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/j7expe01evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/j7expe01evm-top_p5_768_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>adc12j2700evm-top_p1_384_0</h3>
+          <p class="meta">Board: adc12j2700evm-top | Color: green | Components: 144</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/adc12j2700evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/adc12j2700evm-top_p1_384_0_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>tps92542evm-top_p4_384_208</h3>
+          <p class="meta">Board: tps92542evm-top | Color: white | Components: 73</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/tps92542evm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/tps92542evm-top_p4_384_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+        <div class="sample">
+          <h3>drv81008-q1evm-top_p3_0_208</h3>
+          <p class="meta">Board: drv81008-q1evm-top | Color: white | Components: 55</p>
+          <p class="labels">Panels: bbox | composite | harmonized (1024→512) | original</p>
+          
+                <div class="model">
+                  <p class="model-name">v3_newdata ckpt14k (512-trained)</p>
+                  <img src="/OminiControl/runs/v3_newdata/eval_full/ckpt14k/drv81008-q1evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+                <div class="model">
+                  <p class="model-name">v3.1_1024 ckpt6k (1024-trained)</p>
+                  <img src="/OminiControl/runs/v3.1_newdata_1024/eval_full/ckpt6k/drv81008-q1evm-top_p3_0_208_comparison.png" style="width:100%;border-radius:6px">
+                </div>
+        </div>
+</body></html>

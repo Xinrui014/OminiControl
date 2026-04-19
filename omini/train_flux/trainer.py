@@ -299,10 +299,16 @@ class TrainingCallback(L.Callback):
             wandb is not None and os.environ.get("WANDB_API_KEY") is not None
         )
 
-        self.total_steps = 0
         self.test_function = test_function
+        self._last_global_step = -1
 
     def on_train_batch_end(self, trainer, pl_module, outputs, batch, batch_idx):
+        # Only act on optimizer steps (skip accumulation sub-steps)
+        step = trainer.global_step
+        if step == self._last_global_step:
+            return
+        self._last_global_step = step
+
         gradient_size = 0
         max_gradient_size = 0
         count = 0
@@ -314,13 +320,10 @@ class TrainingCallback(L.Callback):
         if count > 0:
             gradient_size /= count
 
-        self.total_steps += 1
-
         # Print training progress every n steps
         if self.use_wandb:
             report_dict = {
-                "steps": batch_idx,
-                "steps": self.total_steps,
+                "steps": step,
                 "epoch": trainer.current_epoch,
                 "gradient_size": gradient_size,
             }
@@ -329,30 +332,30 @@ class TrainingCallback(L.Callback):
             report_dict["t"] = pl_module.last_t
             wandb.log(report_dict)
 
-        if self.total_steps % self.print_every_n_steps == 0:
+        if step % self.print_every_n_steps == 0:
             print(
-                f"Epoch: {trainer.current_epoch}, Steps: {self.total_steps}, Batch: {batch_idx}, Loss: {pl_module.log_loss:.4f}, Gradient size: {gradient_size:.4f}, Max gradient size: {max_gradient_size:.4f}"
+                f"Epoch: {trainer.current_epoch}, Steps: {step}, Batch: {batch_idx}, Loss: {pl_module.log_loss:.4f}, Gradient size: {gradient_size:.4f}, Max gradient size: {max_gradient_size:.4f}"
             )
 
         # Save LoRA weights at specified intervals
-        if self.total_steps % self.save_interval == 0:
+        if step > 0 and step % self.save_interval == 0:
             print(
-                f"Epoch: {trainer.current_epoch}, Steps: {self.total_steps} - Saving LoRA weights"
+                f"Epoch: {trainer.current_epoch}, Steps: {step} - Saving LoRA weights"
             )
             pl_module.save_lora(
-                f"{self.save_path}/{self.run_name}/ckpt/{self.total_steps}"
+                f"{self.save_path}/{self.run_name}/ckpt/{step}"
             )
 
         # Generate and save a sample image at specified intervals
-        if self.total_steps % self.sample_interval == 0 and self.test_function:
+        if step > 0 and step % self.sample_interval == 0 and self.test_function:
             print(
-                f"Epoch: {trainer.current_epoch}, Steps: {self.total_steps} - Generating a sample"
+                f"Epoch: {trainer.current_epoch}, Steps: {step} - Generating a sample"
             )
             pl_module.eval()
             self.test_function(
                 pl_module,
                 f"{self.save_path}/{self.run_name}/output",
-                f"lora_{self.total_steps}",
+                f"lora_{step}",
             )
             pl_module.train()
 

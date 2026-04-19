@@ -1,0 +1,42 @@
+dtype: bfloat16
+flux_path: black-forest-labs/FLUX.1-dev
+model:
+  independent_condition: false
+train:
+  accumulate_grad_batches: 2
+  batch_size: 2
+  condition_type: pcb_harmonize
+  dataloader_workers: 4
+  dataset:
+    anno_dir: /home/xinrui/projects/data/ti_pcb/COCO_label/annotation/train
+    condition_size: [512, 512]
+    crops_per_board: 10
+    drop_image_prob: 0.1
+    drop_text_prob: 0.1
+    edge_margin: 5
+    image_dir: /home/xinrui/projects/data/ti_pcb/images_top
+    min_components: 2
+    min_visible_ratio: 0.5
+    resize_jitter: 0.15
+    target_size: [512, 512]
+    v2_jsonl: /home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/train.jsonl
+    v2_test_jsonl: /home/xinrui/projects/data/ti_pcb/layout_data/v2_Color_Res_Class_xywh/test.jsonl
+  gradient_checkpointing: true
+  gradient_clip_val: 0.5
+  lora_path: /home/xinrui/projects/OminiControl/runs/20260327-022340/ckpt/12000
+  lora_config:
+    init_lora_weights: gaussian
+    lora_alpha: 16
+    r: 16
+    target_modules: '(.*x_embedder|.*(?<!single_)transformer_blocks\.[0-9]+\.norm1\.linear|.*(?<!single_)transformer_blocks\.[0-9]+\.attn\.to_k|.*(?<!single_)transformer_blocks\.[0-9]+\.attn\.to_q|.*(?<!single_)transformer_blocks\.[0-9]+\.attn\.to_v|.*(?<!single_)transformer_blocks\.[0-9]+\.attn\.to_out\.0|.*(?<!single_)transformer_blocks\.[0-9]+\.ff\.net\.2|.*single_transformer_blocks\.[0-9]+\.norm\.linear|.*single_transformer_blocks\.[0-9]+\.proj_mlp|.*single_transformer_blocks\.[0-9]+\.proj_out|.*single_transformer_blocks\.[0-9]+\.attn.to_k|.*single_transformer_blocks\.[0-9]+\.attn.to_q|.*single_transformer_blocks\.[0-9]+\.attn.to_v|.*single_transformer_blocks\.[0-9]+\.attn.to_out)'
+  max_steps: 24000
+  optimizer:
+    type: AdamW
+    params:
+      lr: 2.0e-5
+      weight_decay: 0.01
+  sample_interval: 2000
+  save_interval: 2000
+  save_path: runs
+  wandb:
+    project: OminiControl-PCB
