@@ -147,8 +147,9 @@ class ComponentBankV2_1:
             with open(anno_path) as f:
                 data = json.load(f)
 
-            board_color = data.get("board_color", "green")
-            resolution_class = parse_resolution_class(data.get("resolution_class", "R3"))
+            # v2.2 has some JSONs with explicit `board_color: null` — coerce None → default
+            board_color = data.get("board_color") or "green"
+            resolution_class = parse_resolution_class(data.get("resolution_class") or "R3")
 
             img_info = data["images"][0] if data.get("images") else None
             img_w = img_info["width"] if img_info else 1280
@@ -315,6 +316,14 @@ class ComponentBankV2_1:
         chosen = random.choice(valid[:top_k])
         return (chosen[0], chosen[1])
 
+    # Cardinal CCW rotations — exact pixel permutation via Image.transpose.
+    # Avoids BILINEAR blur that crop.rotate(...) applies even for 90/180/270.
+    _CARDINAL_ROTATE = {
+        90: Image.ROTATE_90,
+        180: Image.ROTATE_180,
+        270: Image.ROTATE_270,
+    }
+
     def load_crop(
         self,
         entry: ComponentEntry,
@@ -326,7 +335,7 @@ class ComponentBankV2_1:
         """
         Load a component crop, optionally rotate CCW, then resize to target.
 
-        rotation: CCW degrees (0, 90, 180, 270) to apply before resize.
+        rotation: CCW degrees (0, 90, 180, 270 are exact; diagonals use BILINEAR).
         """
         board = self._get_board_image(entry.board_name)
         if board is None:
@@ -335,8 +344,12 @@ class ComponentBankV2_1:
         x, y, w, h = entry.bbox
         crop = board.crop((int(x), int(y), int(x + w), int(y + h)))
 
-        # Apply CCW rotation (PIL.Image.rotate is CCW, expand=True adjusts canvas)
-        if rotation != 0:
+        # Apply CCW rotation. For cardinal 90/180/270, use Image.transpose —
+        # it is a pure memory rearrangement (bit-exact, no resampling). For
+        # diagonal angles (45/135/…), fall back to BILINEAR rotate.
+        if rotation in self._CARDINAL_ROTATE:
+            crop = crop.transpose(self._CARDINAL_ROTATE[rotation])
+        elif rotation != 0:
             crop = crop.rotate(rotation, expand=True, resample=Image.BILINEAR)
 
         if resize_jitter > 0:

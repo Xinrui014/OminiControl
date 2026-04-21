@@ -267,9 +267,12 @@ class OminiModel(L.LightningModule):
         target = x_1 - x_0
         loss_weight_mask = batch.get("loss_weight_mask", None)
         if loss_weight_mask is not None:
-            # loss_weight_mask shape: (B, n_tokens) → (B, n_tokens, 1)
+            # loss_weight_mask shape: (B, n_tokens) → (B, n_tokens, 1).
+            # Normalize by sum of weights (not mean) so overall loss scale does
+            # not drift with crop content — component_loss_weight only controls
+            # relative weighting, not absolute magnitude.
             w = loss_weight_mask.to(pred.device, pred.dtype).unsqueeze(-1)
-            step_loss = (w * (pred - target) ** 2).mean()
+            step_loss = (w * (pred - target) ** 2).sum() / (w.sum() * pred.shape[-1])
         else:
             step_loss = torch.nn.functional.mse_loss(pred, target, reduction="mean")
         self.last_t = t.mean().item()
@@ -301,6 +304,10 @@ class TrainingCallback(L.Callback):
 
         self.test_function = test_function
         self._last_global_step = -1
+        # Step-timing state for s/it display
+        self._step_time_prev = None
+        self._step_time_ema = None      # EMA over per-optimizer-step wall time
+        self._ema_alpha = 0.1           # smoothing factor (~10-step horizon)
 
     def on_train_batch_end(self, trainer, pl_module, outputs, batch, batch_idx):
         # Only act on optimizer steps (skip accumulation sub-steps)
@@ -308,6 +315,19 @@ class TrainingCallback(L.Callback):
         if step == self._last_global_step:
             return
         self._last_global_step = step
+
+        # Per-optimizer-step wall time, smoothed with EMA
+        now = time.time()
+        if self._step_time_prev is not None:
+            dt = now - self._step_time_prev
+            if self._step_time_ema is None:
+                self._step_time_ema = dt
+            else:
+                self._step_time_ema = (
+                    self._ema_alpha * dt + (1 - self._ema_alpha) * self._step_time_ema
+                )
+        self._step_time_prev = now
+        s_per_it = self._step_time_ema if self._step_time_ema is not None else 0.0
 
         gradient_size = 0
         max_gradient_size = 0
@@ -326,6 +346,7 @@ class TrainingCallback(L.Callback):
                 "steps": step,
                 "epoch": trainer.current_epoch,
                 "gradient_size": gradient_size,
+                "s_per_step": s_per_it,
             }
             loss_value = outputs["loss"].item() * trainer.accumulate_grad_batches
             report_dict["loss"] = loss_value
@@ -334,7 +355,11 @@ class TrainingCallback(L.Callback):
 
         if step % self.print_every_n_steps == 0:
             print(
-                f"Epoch: {trainer.current_epoch}, Steps: {step}, Batch: {batch_idx}, Loss: {pl_module.log_loss:.4f}, Gradient size: {gradient_size:.4f}, Max gradient size: {max_gradient_size:.4f}"
+                f"Epoch: {trainer.current_epoch}, Steps: {step}, "
+                f"Batch: {batch_idx}, Loss: {pl_module.log_loss:.4f}, "
+                f"Gradient size: {gradient_size:.4f}, "
+                f"Max gradient size: {max_gradient_size:.4f}, "
+                f"{s_per_it:.2f}s/step"
             )
 
         # Save LoRA weights at specified intervals
@@ -380,11 +405,26 @@ def train(dataset, trainable_model, config, test_function):
 
     # Initialize dataloader
     print("Dataset length:", len(dataset))
+
+    def _worker_init(worker_id):
+        # PyTorch seeds torch RNG per worker, but Python's random and numpy.random
+        # are forked with identical state. Seed them per-worker so augmentation
+        # decisions (crop pos, zoom, template, bank pick) are decorrelated across
+        # workers. Without this, all workers march in lockstep through the same
+        # RNG sequence.
+        import random
+        import numpy as np
+        seed = (torch.initial_seed() + worker_id) % (2**31)
+        random.seed(seed)
+        np.random.seed(seed)
+
     train_loader = DataLoader(
         dataset,
         batch_size=training_config.get("batch_size", 1),
         shuffle=True,
         num_workers=training_config["dataloader_workers"],
+        worker_init_fn=_worker_init,
+        persistent_workers=training_config["dataloader_workers"] > 0,
     )
 
     # Callbacks for testing and saving checkpoints

@@ -412,8 +412,27 @@ def transformer_forward(
         {"use_reentrant": False} if is_torch_version(">=", "1.11.0") else {}
     )
 
+    # Partial gradient checkpointing:
+    #   gc_stride          (int)  → base stride, checkpoint every N-th block
+    #   gc_stride_double   (int)  → override for double-stream blocks (19 big ones)
+    #   gc_stride_single   (int)  → override for single-stream blocks (38 smaller)
+    # Setting a stride to 0 disables checkpointing for that block type entirely
+    # (skip recompute, keep activations in memory → faster, more VRAM used).
+    # Configure from launcher via e.g.
+    #   model.flux_pipe.transformer.gc_stride_single = 0   # skip single-stream ckpt
+    gc_stride = getattr(self, "gc_stride", 1)
+    gc_stride_double = getattr(self, "gc_stride_double", gc_stride)
+    gc_stride_single = getattr(self, "gc_stride_single", gc_stride)
+
+    def _should_ckpt(index_block: int, stride: int) -> bool:
+        if not (self.training and self.gradient_checkpointing):
+            return False
+        if stride == 0:
+            return False
+        return (index_block % stride) == 0
+
     # dual branch blocks
-    for block in self.transformer_blocks:
+    for index_block, block in enumerate(self.transformer_blocks):
         block_kwargs = {
             "self": block,
             "image_hidden_states": image_hidden_states,
@@ -424,7 +443,7 @@ def transformer_forward(
             "attn_forward": attn_forward,
             **kwargs,
         }
-        if self.training and self.gradient_checkpointing:
+        if _should_ckpt(index_block, gc_stride_double):
             image_hidden_states, text_hidden_states = torch.utils.checkpoint.checkpoint(
                 block_forward, **block_kwargs, **gckpt_kwargs
             )
@@ -433,7 +452,7 @@ def transformer_forward(
 
     # combine image and text hidden states then pass through the single transformer blocks
     all_hidden_states = [*text_hidden_states, *image_hidden_states]
-    for block in self.single_transformer_blocks:
+    for index_block, block in enumerate(self.single_transformer_blocks):
         block_kwargs = {
             "self": block,
             "hidden_states": all_hidden_states,
@@ -443,7 +462,7 @@ def transformer_forward(
             "attn_forward": attn_forward,
             **kwargs,
         }
-        if self.training and self.gradient_checkpointing:
+        if _should_ckpt(index_block, gc_stride_single):
             all_hidden_states = torch.utils.checkpoint.checkpoint(
                 single_block_forward, **block_kwargs, **gckpt_kwargs
             )
