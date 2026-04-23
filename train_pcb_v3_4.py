@@ -116,6 +116,7 @@ class PCBHarmonizeDatasetV3_4(Dataset):
         zoom_prob: float = 0.4,
         zoom_crop_size: int = 256,
         component_loss_weight: float = 3.0,
+        return_annotations: bool = False,
     ):
         self.anno_dir = anno_dir
         self.image_dir = image_dir
@@ -131,6 +132,7 @@ class PCBHarmonizeDatasetV3_4(Dataset):
         self.zoom_prob = zoom_prob
         self.zoom_crop_size = zoom_crop_size
         self.component_loss_weight = component_loss_weight
+        self.return_annotations = return_annotations
 
         # Load board list from annotation dir (no v2_jsonl needed)
         self.boards = []
@@ -275,7 +277,7 @@ class PCBHarmonizeDatasetV3_4(Dataset):
         else:
             description = make_prompt(board_color, crop_annotations)
 
-        return {
+        out = {
             "image": self.to_tensor(real_patch),
             "condition_0": self.to_tensor(composite),
             "condition_type_0": "pcb_harmonize",
@@ -283,6 +285,19 @@ class PCBHarmonizeDatasetV3_4(Dataset):
             "description": description,
             "loss_weight_mask": weight_mask,
         }
+        if self.return_annotations:
+            # bbox (x1,y1,x2,y2) int in composite coord space + cat_name
+            bboxes_xyxy = []
+            cat_names = []
+            for ann in crop_annotations:
+                bx, by, bw, bh = ann["bbox"]
+                bboxes_xyxy.append((int(bx), int(by), int(bx+bw), int(by+bh)))
+                cat_names.append(ann["category_name"])
+            out["bboxes_xyxy"] = bboxes_xyxy
+            out["cat_names"] = cat_names
+            out["composite_pil"] = composite        # keep PIL for Condition()
+            out["prompt"] = description               # alias
+        return out
 
     def _build_composite(
         self,
