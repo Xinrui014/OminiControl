@@ -53,6 +53,7 @@ def main():
     ap.add_argument("--start", type=int, default=0)
     ap.add_argument("--end", type=int, default=-1)
     ap.add_argument("--delta_scale", type=float, default=1.0)
+    ap.add_argument("--lora_rank", type=int, default=8)
     args = ap.parse_args()
 
     out = Path(args.output_dir); out.mkdir(parents=True, exist_ok=True)
@@ -71,7 +72,7 @@ def main():
     pipe.transformer.requires_grad_(False)
     pipe.load_lora_weights(args.v34_ckpt, weight_name="default.safetensors", adapter_name="pcb_harmonize")
 
-    delta_cfg = LoraConfig(r=8, lora_alpha=8,
+    delta_cfg = LoraConfig(r=args.lora_rank, lora_alpha=args.lora_rank,
         target_modules=["to_q","to_k","to_v","to_out.0","ff.net.0.proj","ff.net.2"],
         init_lora_weights=True)
     inject_adapter_in_model(delta_cfg, pipe.transformer, adapter_name="delta")
